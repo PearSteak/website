@@ -1,4 +1,4 @@
-pear_contract_address = "0x0c464e6E0b751Adf42C5204Bc3A16AAFbD1E887a";
+pear_contract_address = "0xDb87464Ac327964bd62177d09B077Ef9e4f11d24";
 pear_abi = [
 	{
 		"inputs": [],
@@ -243,6 +243,19 @@ pear_abi = [
 			}
 		],
 		"name": "getStakeReward",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTotalSupply",
 		"outputs": [
 			{
 				"internalType": "uint256",

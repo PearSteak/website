@@ -1,4 +1,4 @@
-steak_contract_address = "0xeD6FD1bCb84CC84c6Abb3b1137E6cA4b5c5D7f0d";
+steak_contract_address = "0x143c039D1cE08A77eE3B47aB06508a2b162A54ce";
 steak_abi = [
 	{
 		"inputs": [],
@@ -243,6 +243,19 @@ steak_abi = [
 			}
 		],
 		"name": "getStakeReward",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTotalSupply",
 		"outputs": [
 			{
 				"internalType": "uint256",

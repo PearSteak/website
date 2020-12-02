@@ -10,10 +10,39 @@ window.addEventListener('load', () => {
 		
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
+	
+	setInterval(updateTotalSupply, 10000);
+	updateTotalSupply();
+	
+	$(".pear_contract").text(pear_contract_address);
+	$(".steak_contract").text(steak_contract_address);
 });
 
 if (window.ethereum !== undefined) {
 	window.ethereum.enable();
+};
+
+function updateTotalSupply() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_contract.getTotalSupply.call(function(error, info) {
+		if (!error) {
+			console.log(info);
+		} else {
+			console.log(error);
+		}
+	});	
+	
+	steak_contract.getTotalSupply.call(function(error, info) {
+		if (!error) {
+			console.log(info);
+		} else {
+			console.log(error);
+		}
+	});
 };
 
 $(function(){
