@@ -30,7 +30,7 @@ function updateTotalSupply() {
 			
 	pear_contract.getTotalSupply.call(function(error, info) {
 		if (!error) {
-			$(".pearTotalSupply_num").text((info["c"][0]/1000000000000000000).toFixed(2));
+			$(".pearTotalSupply_num").text((info/1000000000000000000).toFixed(2));
 		} else {
 			console.log(error);
 		}
