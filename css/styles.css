@@ -1,0 +1,90 @@
+html {
+	overflow-x: hidden;
+}
+
+body {
+	background-image: url('../img/bg.png'), linear-gradient(90deg, #b5e61d 50%, #f47980 50%);
+	background-repeat: repeat-y;
+	background-position: center top;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.pear {
+	font-family: Brush Script MT,cursive; 
+	color: #00691e;
+}
+
+.steak {
+	font-family: Brush Script MT,cursive; 
+	color: #9c0e16;
+}
+
+.stakeTable {
+	width:80%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.pearTotalSupply {
+	border-style: solid;
+	border-color: #00691e;
+	background-color: #bdffd0; 
+	padding: 5px;
+	border-radius: 25px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	font-weight: bold;
+}
+
+.steakTotalSupply {
+	text-align: right;
+	border-style: solid;
+	border-color: #9c0e16;
+	background-color: #ffb3b7; 
+	padding: 5px;
+	border-radius: 25px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-weight: bold;
+}
+
+#pearImg {
+    background:url('../img/pear.png');
+	background-repeat: no-repeat;
+	background-size: 300px;
+	position: absolute;
+	left: 25px;
+	bottom: 25px;
+    width: 300px;
+    height: 420px; 
+}
+
+#steakImg {
+    background:url('../img/steak.png');
+	background-repeat: no-repeat;
+	background-size: 300px;
+	position: absolute;
+	right: 25px;
+	bottom: 60px;
+    width: 300px;
+    height: 200px; 
+}

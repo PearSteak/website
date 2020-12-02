@@ -1,0 +1,157 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>PearSteak</title>
+	<meta name="description" content="Pear Steak">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="img/fav.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="row">
+		<div class="column pear">
+			<div class="pearTotalSupply">Total supply: 20,000,000</div>
+			<h1>Pear</h1>
+			<p>Contract: </p>
+			<table class="stakeTable">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">HTML</a></li>
+									<li><a href="#">CSS</a></li>
+									<li><a href="#">JavaScript</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button class="btn btn-success" type="button">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<table class="table-hover stakeTable">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 30%">Amount</th>
+						<th scope="col" style="width: 30%">Unlocks</th>
+						<th scope="col" style="width: 30%">Earned</th>
+						<th scope="col" style="width: 10%"></th>
+					</tr>
+				</thead>
+				<tbody id="pear_stake_table">
+					<tr>
+						<td>Jacob</td>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					<tr>
+						<td>Jacob</td>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					<tr>
+						<td>Jacob</td>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					<tr>
+						<td>Jacob</td>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="pearImg"></div>
+		</div>
+		<div class="column steak">
+			<div class="steakTotalSupply">Total supply: 20,000,000</div>
+			<h1>Steak</h1>
+			<p>Contract: </p>
+			<table class="stakeTable">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#">HTML</a></li>
+									<li><a href="#">CSS</a></li>
+									<li><a href="#">JavaScript</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button class="btn btn-danger" type="button">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<table class="table-hover stakeTable">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 30%">Amount</th>
+						<th scope="col" style="width: 30%">Unlocks</th>
+						<th scope="col" style="width: 30%">Earned</th>
+						<th scope="col" style="width: 10%"></th>
+					</tr>
+				</thead>
+				<tbody id="pear_stake_table">
+					<tr>
+						<td>Jacob</td>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					<tr>
+						<td>Jacob</td>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					<tr>
+						<td>Jacob</td>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					<tr>
+						<td>Jacob</td>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="steakImg"></div>
+		</div>
+	</div>
+</body>
+</html>
