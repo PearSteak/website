@@ -22,6 +22,7 @@
 	<div class="row">
 		<div class="column pear">
 			<div class="pearTotalSupply">Total supply: 20,000,000</div>
+			<br/><br/>
 			<h1>Pear</h1>
 			<p>Contract: </p>
 			<table class="stakeTable">
@@ -35,11 +36,12 @@
 						<td style="width: 80%"><input type="text" class="form-control" placeholder="Amount"></td>
 						<td style="width: 10%">
 							<div class="dropdown">
-								<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Option <span class="caret"></span></button>
+								<button class="btn btn-success dropdown-toggle pear-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
 								<ul class="dropdown-menu">
-									<li><a href="#">HTML</a></li>
-									<li><a href="#">CSS</a></li>
-									<li><a href="#">JavaScript</a></li>
+									<li><a href="#" class="pear-flexible">Flexible, 100% APY</a></li>
+									<li><a href="#" class="pear-7days">7-days, 200% APY</a></li>
+									<li><a href="#" class="pear-30days">30-days, 350% APY</a></li>
+									<li><a href="#" class="pear-365days">365-days, 500% APY</a></li>
 								</ul>
 							</div>
 						</td>
@@ -48,7 +50,7 @@
 				</tbody>
 			</table>
 			<br />
-			<table class="table-hover stakeTable">
+			<table class="table-hover stakeTable stakelist">
 				<thead>
 					<tr>
 						<th scope="col" style="width: 30%">Amount</th>
@@ -88,6 +90,7 @@
 		</div>
 		<div class="column steak">
 			<div class="steakTotalSupply">Total supply: 20,000,000</div>
+			<br/><br/>
 			<h1>Steak</h1>
 			<p>Contract: </p>
 			<table class="stakeTable">
@@ -101,11 +104,12 @@
 						<td style="width: 80%"><input type="text" class="form-control" placeholder="Amount"></td>
 						<td style="width: 10%">
 							<div class="dropdown">
-								<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Option <span class="caret"></span></button>
+								<button class="btn btn-danger dropdown-toggle steak-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
 								<ul class="dropdown-menu">
-									<li><a href="#">HTML</a></li>
-									<li><a href="#">CSS</a></li>
-									<li><a href="#">JavaScript</a></li>
+									<li><a href="#" class="steak-flexible">Flexible, 100% APY</a></li>
+									<li><a href="#" class="steak-7days">7-days, 200% APY</a></li>
+									<li><a href="#" class="steak-30days">30-days, 350% APY</a></li>
+									<li><a href="#" class="steak-365days">365-days, 500% APY</a></li>
 								</ul>
 							</div>
 						</td>
@@ -114,7 +118,7 @@
 				</tbody>
 			</table>
 			<br />
-			<table class="table-hover stakeTable">
+			<table class="table-hover stakeTable stakelist">
 				<thead>
 					<tr>
 						<th scope="col" style="width: 30%">Amount</th>
@@ -153,5 +157,7 @@
 			<div id="steakImg"></div>
 		</div>
 	</div>
+	<script src="js/token_abi.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
