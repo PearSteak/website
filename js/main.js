@@ -60,7 +60,14 @@ function updatePearStakeList() {
 	pear_contract.getAmountOfStakes.call(function(error, info) {
 		if (!error) {
 			for (i = 0; i < info["c"][0]; i++) {
-				console.log("LOOP!");
+				$( "#pear_stake_table" ).append( "
+					<tr>
+						<td>getStakeAmount (i)</td> 
+						<td> getRemainingLockTime (i) if 0 = unlocked, if not grey out unstake button</td>
+						<td>getStakeReward (i)</td> 
+						<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>
+					</tr>
+					" );
 			}
 		} else {
 			console.log(error);
