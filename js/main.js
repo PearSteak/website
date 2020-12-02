@@ -14,6 +14,12 @@ window.addEventListener('load', () => {
 	setInterval(updateTotalSupply, 10000);
 	updateTotalSupply();
 	
+	setInterval(updatePearStakeList, 10000);
+	updatePearStakeList();
+	
+	setInterval(updateSteakStakeList, 10000);
+	updateSteakStakeList();
+	
 	$(".pear_contract").text(pear_contract_address);
 	$(".steak_contract").text(steak_contract_address);
 });
@@ -38,8 +44,38 @@ function updateTotalSupply() {
 	
 	steak_contract.getTotalSupply.call(function(error, info) {
 		if (!error) {
-			console.log(info)
 			$(".steakTotalSupply_num").text((info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updatePearStakeList() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_contract.getAmountOfStakes.call(function(error, info) {
+		if (!error) {
+			console.log(info)
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updateSteakStakeList() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	
+	steak_contract.getAmountOfStakes.call(function(error, info) {
+		if (!error) {
+			console.log(info)
 		} else {
 			console.log(error);
 		}
