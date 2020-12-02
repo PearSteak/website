@@ -30,7 +30,7 @@ function updateTotalSupply() {
 			
 	pear_contract.getTotalSupply.call(function(error, info) {
 		if (!error) {
-			$(".pearTotalSupply_num").text(info["c"][0]);
+			$(".pearTotalSupply_num").text((info["c"][0]/10000000000).toFixed(2));
 		} else {
 			console.log(error);
 		}
@@ -38,7 +38,7 @@ function updateTotalSupply() {
 	
 	steak_contract.getTotalSupply.call(function(error, info) {
 		if (!error) {
-			$(".steakTotalSupply_num").text(info["c"][0]);
+			$(".steakTotalSupply_num").text((info["c"][0]/10000000000).toFixed(2));
 		} else {
 			console.log(error);
 		}
