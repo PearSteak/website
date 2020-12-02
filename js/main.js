@@ -38,7 +38,7 @@ function updateTotalSupply() {
 	
 	steak_contract.getTotalSupply.call(function(error, info) {
 		if (!error) {
-			console.log(info["c"][0])
+			console.log(info])
 			$(".steakTotalSupply_num").text(info);
 		} else {
 			console.log(error);
