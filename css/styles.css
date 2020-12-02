@@ -74,12 +74,12 @@ body {
 #pearImg {
     background:url('../img/pear.png');
 	background-repeat: no-repeat;
-	background-size: 300px;
+	background-size: 250px;
 	position: absolute;
 	left: 25px;
 	bottom: 25px;
-    width: 300px;
-    height: 420px; 
+    width: 250px;
+    height: 350px; 
 }
 
 #steakImg {
