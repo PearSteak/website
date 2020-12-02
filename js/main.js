@@ -59,6 +59,7 @@ function updatePearStakeList() {
 			
 	pear_contract.getAmountOfStakes.call(function(error, info) {
 		if (!error) {
+			$("pear_stake_table").empty();
 			for (i = 0; i < info["c"][0]; i++) {
 				$( "#pear_stake_table" ).append(`
 					<tr>
