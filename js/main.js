@@ -59,7 +59,7 @@ function updatePearStakeList() {
 			
 	pear_contract.getAmountOfStakes.call(function(error, info) {
 		if (!error) {
-			console.log(info)
+			console.log(info["c"][0])
 		} else {
 			console.log(error);
 		}
