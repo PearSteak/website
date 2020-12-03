@@ -68,7 +68,7 @@ function updatePearStakeList() {
 							'<td class="pear_steak_amount_' + i + '"></td>' +
 							'<td class="pear_steak_remaining_' + i + '"></td>' +
 							'<td class="pear_steak_reward_' + i + '"></td>' +
-							'<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>' +
+							'<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button pear_steak_button_' + i + '" disabled>Unstake!</button></td>' +
 						'</tr>');
 				}
 			}
