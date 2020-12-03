@@ -49,6 +49,7 @@ window.addEventListener('load', () => {
 	pear_contract.unstaked({}, function (error, result) {
         if (!error) {
 			updatePearTotalSupply();
+			updateSteakBalance();
 			updatePearStakeList();
 		}else {
 			console.log(error);
@@ -58,6 +59,7 @@ window.addEventListener('load', () => {
 	steak_contract.unstaked({}, function (error, result) {
         if (!error) {
 			updateSteakTotalSupply();
+			updatePearBalance();
 			updateSteakStakeList();
 		}else {
 			console.log(error);
