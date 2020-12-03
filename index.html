@@ -25,7 +25,7 @@
 			<br/><br/>
 			<h1>Pear</h1>
 			<p>Contract: <span class="pear_contract"></span></p>
-			<table class="stakeTable">
+			<table class="stakeTable stakesubmit">
 				<thead>
 					<tr>
 						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
@@ -63,55 +63,255 @@
 				</tbody>
 			</table>
 			<div id="pearImg"></div>
-		</div>
-		<div class="column steak">
-			<div class="steakTotalSupply">Total supply: <span class="steakTotalSupply_num"></span></div>
-			<br/><br/>
-			<h1>Steak</h1>
-			<p>Contract: <span class="steak_contract"></span></p>
-			<table class="stakeTable">
-				<thead>
-					<tr>
-						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="width: 80%"><input type="text" class="form-control" placeholder="Amount"></td>
-						<td style="width: 10%">
-							<div class="dropdown">
-								<button class="btn btn-danger dropdown-toggle steak-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
-								<ul class="dropdown-menu">
-									<li><a href="#" class="steak-flexible">Flexible, 100% APY</a></li>
-									<li><a href="#" class="steak-7days">7-days, 200% APY</a></li>
-									<li><a href="#" class="steak-30days">30-days, 350% APY</a></li>
-									<li><a href="#" class="steak-365days">365-days, 500% APY</a></li>
-								</ul>
-							</div>
-						</td>
-						<td style="width: 10%"><button class="btn btn-danger" type="button">Stake!</button></td>
-					</tr>
-				</tbody>
-			</table>
-			<br />
-			<table class="table-hover stakeTable stakelist">
-				<thead>
-					<tr>
-						<th scope="col" style="width: 30%">Amount</th>
-						<th scope="col" style="width: 30%">Unlocks</th>
-						<th scope="col" style="width: 30%">Earned</th>
-						<th scope="col" style="width: 10%"></th>
-					</tr>
-				</thead>
-				<tbody id="pear_stake_table">
-					<tr>
-						<td>Jacob</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
-					</tr>
-				</tbody>
-			</table>
+			</div>
+			<div class="column steak">
+				<div class="steakTotalSupply">Total supply: <span class="steakTotalSupply_num"></span></div>
+				<br/><br/>
+				<h1>Steak</h1>
+				<p>Contract: <span class="steak_contract"></span></p>
+				<table class="stakeTable stakesubmit">
+					<thead>
+						<tr>
+							<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 80%"><input type="text" class="form-control" placeholder="Amount"></td>
+							<td style="width: 10%">
+								<div class="dropdown">
+									<button class="btn btn-danger dropdown-toggle steak-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
+									<ul class="dropdown-menu">
+										<li><a href="#" class="steak-flexible">Flexible, 100% APY</a></li>
+										<li><a href="#" class="steak-7days">7-days, 200% APY</a></li>
+										<li><a href="#" class="steak-30days">30-days, 350% APY</a></li>
+										<li><a href="#" class="steak-365days">365-days, 500% APY</a></li>
+									</ul>
+								</div>
+							</td>
+							<td style="width: 10%"><button class="btn btn-danger" type="button">Stake!</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<br />
+				<section class="d-flex">
+					<table class="table-hover stakeTable stakelist">
+						<thead>
+							<tr>
+								<th scope="col" style="width: 30%">Amount</th>
+								<th scope="col" style="width: 30%">Unlocks</th>
+								<th scope="col" style="width: 30%">Earned</th>
+								<th scope="col" style="width: 10%"></th>
+							</tr>
+						</thead>
+					<tbody id="pear_stake_table">
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+						<tr>
+							<td>Jacob</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><button type="button" onclick="unstake();" class="btn btn-danger btn-sm unstake-button">Unstake!</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
 			<div id="steakImg"></div>
 		</div>
 	</div>
