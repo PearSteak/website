@@ -168,7 +168,7 @@ function updatePearStakeList() {
 			$.each(info, function( index, value ) {
 				$(".pear_stake_table").append("<tr>" + 
 													"<td>" + value[0] + "</td>" + 
-													"<td>" + value[1] + "</td>" + 
+													"<td>" + secondsToHms(value[1]) + "</td>" + 
 													"<td>" + value[2] + "</td>" + 
 													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button\">Unstake!</button></td>" + 
 												"</tr>");
@@ -230,3 +230,18 @@ $(function(){
 		$(".steak-dropdown").val(3);
 	});
 });
+
+
+function secondsToHms(d) {
+    d = Number(d);
+    var da = Math.floor(d / 86400);
+    var h = Math.floor(d % 86400 / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+
+    var daDisplay = da > 0 ? da + (da == 1 ? " day " : " days ") : "";
+    var hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
+    var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    return daDisplay + hDisplay + mDisplay + sDisplay; 
+}
