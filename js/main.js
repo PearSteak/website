@@ -63,6 +63,7 @@ function updatePearStakeList() {
 			if ($( "#pear_stake_table tr").length != amountOfStakes) {
 				$("#pear_stake_table").empty();
 				for (i = 0; i < amountOfStakes; i++) {
+					console.log(i);
 					$( "#pear_stake_table" ).append('<tr>' +
 							'<td class="pear_steak_amount_' + i + '"></td>' +
 							'<td class="pear_steak_remaining_' + i + '"></td>' +
