@@ -75,6 +75,7 @@ function updatePearStakeList() {
 			for (y = 0; y < amountOfStakes; y++) {
 				console.log(y);
 				pear_contract.getStakeAmount.call(y, function(error, info) {
+					console.log(y);
 					if (!error) {
 						$( ".pear_steak_amount_" + y ).text((info/1000000000000000000).toFixed(2));
 					} else {
