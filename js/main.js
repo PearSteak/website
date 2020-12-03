@@ -71,6 +71,7 @@ function updatePearBalance() {
 	pear_contract.getMyBalance.call(function(error, info) {
 		if (!error) {
 			$(".pear-amount").val(info);
+			structurePearBalance()
 		} else {
 			console.log(error);
 		}
@@ -91,6 +92,11 @@ function updateSteakBalance() {
 		}
 	});
 };
+
+function structurePearBalance() {
+	num = num.replace(/(\d)(?=(\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d)+(?!\d))/g, "$1.");
+	$(".pear-amount").val(num);
+}
 
 function PearStake() {
 	var account =
