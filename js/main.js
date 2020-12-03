@@ -72,7 +72,7 @@ function updatePearBalance() {
 		if (!error) {
 			var num = info;
 			num = num.toString().replace(/(\d)(?=(\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d)+(?!\d))/g, "$1.");
-			$(".pear-amount").val(num.toFixed(2));
+			$(".pear-amount").val(parseInt(num).toFixed(2));
 			structurePearBalance()
 		} else {
 			console.log(error);
