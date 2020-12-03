@@ -177,9 +177,8 @@ function updatePearStakeList() {
 													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button pear_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
 												"</tr>");
 				if (unlocks == "") {
-					$("#pear_unstake_" + index).prop('disabled', false);
+					$(".pear_unstake_" + index).prop('disabled', false);
 				}
-				$('.enableOnInput').prop('disabled', false);
 			});
 		} else {
 			console.log(error);
