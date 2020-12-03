@@ -12,9 +12,9 @@ window.addEventListener('load', () => {
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
 	
 	setInterval(updatePearTotalSupply, 10000);
-	updateTotalSupply();
+	updatePearTotalSupply();
 	setInterval(updateSteakTotalSupply, 10000);
-	updateTotalSupply();
+	updateSteakTotalSupply();
 	
 	setInterval(updatePearBalance, 10000);
 	updatePearBalance();
