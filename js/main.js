@@ -166,10 +166,14 @@ function updatePearStakeList() {
 		if (!error) {
 			$("#pear_stake_table").empty();
 			$.each(info, function( index, value ) {
+				var amount = (value[0]/1000000000000000000).toFixed(2);
+				var unlocks = secondsToHms(value[1]);
+				var earned = (value[2]/1000000000000000000).toFixed(2);
+				
 				$("#pear_stake_table").append("<tr>" + 
-													"<td>" + (value[0]/1000000000000000000).toFixed(2) + "</td>" + 
-													"<td>" + secondsToHms(value[1]) + "</td>" + 
-													"<td>" + (value[2]/1000000000000000000).toFixed(2) + "</td>" + 
+													"<td>" + amount + "</td>" + 
+													"<td>" + unlocks + "</td>" + 
+													"<td>" + earned + "</td>" + 
 													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button\" disabled>Unstake!</button></td>" + 
 												"</tr>");
 			});
