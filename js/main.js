@@ -11,12 +11,18 @@ window.addEventListener('load', () => {
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
 	
-	setInterval(updateTotalSupply, 10000);
+	setInterval(updatePearTotalSupply, 10000);
 	updateTotalSupply();
+	setInterval(updateSteakTotalSupply, 10000);
+	updateTotalSupply();
+	
+	setInterval(updatePearBalance, 10000);
+	updatePearBalance();
+	setInterval(updateSteakBalance, 10000);
+	updateSteakBalance();
 	
 	setInterval(updatePearStakeList, 10000);
 	updatePearStakeList();
-	
 	setInterval(updateSteakStakeList, 10000);
 	updateSteakStakeList();
 	
@@ -28,7 +34,7 @@ if (window.ethereum !== undefined) {
 	window.ethereum.enable();
 };
 
-function updateTotalSupply() {
+function updatePearTotalSupply() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
@@ -41,10 +47,47 @@ function updateTotalSupply() {
 			console.log(error);
 		}
 	});	
-	
+};
+
+function updateSteakTotalSupply() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
 	steak_contract.getTotalSupply.call(function(error, info) {
 		if (!error) {
 			$(".steakTotalSupply_num").text((info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updatePearBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_contract.getMyBalance.call(function(error, info) {
+		if (!error) {
+			$(".pear-amount").val(info);
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updateSteakBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	steak_contract.getMyBalance.call(function(error, info) {
+		if (!error) {
+			$(".steak-amount").val(info);
 		} else {
 			console.log(error);
 		}
