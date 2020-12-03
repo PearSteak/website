@@ -16,7 +16,9 @@ window.addEventListener('load', () => {
 	setInterval(updateSteakTotalSupply, 10000);
 	updateSteakTotalSupply();
 	
+	setInterval(updatePearBalance, 10000);
 	updatePearBalance();
+	setInterval(updateSteakBalance, 10000);
 	updateSteakBalance();
 	
 	setInterval(updatePearStakeList, 10000);
