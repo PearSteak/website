@@ -100,3 +100,11 @@ body {
     height: 200px; 
 	z-index: -1;
 }
+
+.salesdiv {
+	position: fixed;
+	bottom: 15px;
+	background: blue;
+	margin: auto;
+	width: 50%;
+}
