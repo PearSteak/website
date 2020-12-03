@@ -73,6 +73,7 @@ function updatePearStakeList() {
 			}
 			for (i = 0; i < amountOfStakes; i++) {
 				pear_contract.getStakeAmount.call(i, function(error, info) {
+					console.log(i);
 					if (!error) {
 						$( ".pear_steak_amount_" + i ).text((info/1000000000000000000).toFixed(2));
 					} else {
@@ -81,7 +82,6 @@ function updatePearStakeList() {
 				});
 				pear_contract.getRemainingLockTime.call(i, function(error, info) {
 					if (!error) {
-						console.log(info);
 						$( ".pear_steak_remaining_" + i ).text(info);
 					} else {
 						console.log(error);
@@ -89,7 +89,6 @@ function updatePearStakeList() {
 				});
 				pear_contract.getStakeReward.call(i, function(error, info) {
 					if (!error) {
-						console.log(info);
 						$( ".pear_steak_reward_" + i ).text(info);
 					} else {
 						console.log(error);
@@ -111,7 +110,6 @@ function updateSteakStakeList() {
 	
 	steak_contract.getAmountOfStakes.call(function(error, info) {
 		if (!error) {
-			console.log(info["c"][0])
 		} else {
 			console.log(error);
 		}
