@@ -51,6 +51,27 @@ function updateTotalSupply() {
 	});
 };
 
+function PearStake() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var stake_option = $(".pear-dropdown").val();
+	var stake_amount = $(".pear-amount").val();
+	console.log(stake_amount);
+	console.log(stake_option);
+	/*		
+	pear_contract.getStakes.call(function(error, info) {
+		if (!error) {
+			console.log(info);
+		} else {
+			console.log(error);
+		}
+	});
+	*/
+};
+
 function updatePearStakeList() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
