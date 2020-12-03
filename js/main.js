@@ -132,7 +132,6 @@ function SteakStake() {
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
 	
-	
 	var stake_option = $(".steak-dropdown").val();
 	var stake_amount = $(".steak-amount").val();
 	if (stake_amount.lastIndexOf(".") != -1) {
@@ -165,8 +164,14 @@ function updatePearStakeList() {
 			
 	pear_contract.getStakes.call(function(error, info) {
 		if (!error) {
+			$(".pear_stake_table").empty();
 			$.each(info, function( index, value ) {
-				console.log(value[0]["c"][0]);
+				$(".pear_stake_table").append("<tr>" + 
+													"<td>" + value[0] + "</td>" + 
+													"<td>" + value[1] + "</td>" + 
+													"<td>" + value[2] + "</td>" + 
+													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button\">Unstake!</button></td>" + 
+												"</tr>");
 			});
 		} else {
 			console.log(error);
