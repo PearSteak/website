@@ -72,7 +72,7 @@ function updatePearBalance() {
 		if (!error) {
 			var num = info;
 			num = num.toString().replace(/(\d)(?=(\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d)+(?!\d))/g, "$1.");
-			$(".pear-amount").attr("placeholder",parseInt(num).toFixed(2));
+			$(".pear-amount").attr("placeholder", parseInt(num).toFixed(2));
 		} else {
 			console.log(error);
 		}
@@ -89,7 +89,7 @@ function updateSteakBalance() {
 		if (!error) {
 			var num = info;
 			num = num.toString().replace(/(\d)(?=(\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d)+(?!\d))/g, "$1.");
-			$(".steak-amount").val(parseInt(num).toFixed(2));
+			$(".steak-amount").attr("placeholder", parseInt(num).toFixed(2));
 		} else {
 			console.log(error);
 		}
@@ -104,6 +104,19 @@ function PearStake() {
 	
 	var stake_option = $(".pear-dropdown").val();
 	var stake_amount = $(".pear-amount").val();
+	if (stake_amount.lastIndexOf(".") != -1) {
+		var dotPos = stake_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			stake_amount = stake_amount.concat("0");
+		}
+		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (stake_amount.length < 18) {
+			stake_amount = stake_amount.concat("000000000000000000");
+		}
+	}
+	
 	pear_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
 			console.log(hash);
@@ -119,8 +132,22 @@ function SteakStake() {
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
 	
+	
 	var stake_option = $(".steak-dropdown").val();
 	var stake_amount = $(".steak-amount").val();
+	if (stake_amount.lastIndexOf(".") != -1) {
+		var dotPos = stake_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			stake_amount = stake_amount.concat("0");
+		}
+		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (stake_amount.length < 18) {
+			stake_amount = stake_amount.concat("000000000000000000");
+		}
+	}
+	
 	steak_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
 			console.log(hash);
