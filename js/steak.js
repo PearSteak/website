@@ -1,4 +1,4 @@
-steak_contract_address = "0x143c039D1cE08A77eE3B47aB06508a2b162A54ce";
+steak_contract_address = "0x76799D0524299E749881b430b0EdAf1e6f8bA786";
 steak_abi = [
 	{
 		"inputs": [],
@@ -54,30 +54,6 @@ steak_abi = [
 		],
 		"name": "Transfer",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "_stakingOptions",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "rewardPercent",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "lockedTime",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -184,19 +160,6 @@ steak_abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "getAmountOfStakes",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -216,38 +179,13 @@ steak_abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stake_",
-				"type": "uint256"
-			}
-		],
-		"name": "getStakeAmount",
+		"inputs": [],
+		"name": "getStakes",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "uint256[][]",
 				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stake_",
-				"type": "uint256"
-			}
-		],
-		"name": "getStakeReward",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"type": "uint256[][]"
 			}
 		],
 		"stateMutability": "view",
@@ -288,25 +226,6 @@ steak_abi = [
 			}
 		],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stake_",
-				"type": "uint256"
-			}
-		],
-		"name": "isStakeLocked",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{

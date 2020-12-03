@@ -57,47 +57,9 @@ function updatePearStakeList() {
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
 			
-	pear_contract.getAmountOfStakes.call(function(error, info) {
+	pear_contract.getStakes.call(function(error, info) {
 		if (!error) {
-			var amountOfStakes = info["c"][0];
-			if ($( "#pear_stake_table tr").length != amountOfStakes) {
-				$("#pear_stake_table").empty();
-				for (i = 0; i < amountOfStakes; i++) {
-					console.log(i);
-					$( "#pear_stake_table" ).append('<tr>' +
-							'<td class="pear_steak_amount_' + i + '"></td>' +
-							'<td class="pear_steak_remaining_' + i + '"></td>' +
-							'<td class="pear_steak_reward_' + i + '"></td>' +
-							'<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button pear_steak_button_' + i + '" disabled>Unstake!</button></td>' +
-						'</tr>');
-				}
-			}
-			for (y = 0; y < amountOfStakes; y++) {
-				console.log(y);
-				pear_contract.getStakeAmount.call(y, function(error, info) {
-					console.log(y);
-					if (!error) {
-						$( ".pear_steak_amount_" + y ).text((info/1000000000000000000).toFixed(2));
-					} else {
-						console.log(error);
-					}
-				});
-				pear_contract.getRemainingLockTime.call(y, function(error, info) {
-					if (!error) {
-						$( ".pear_steak_remaining_" + y ).text(info);
-					} else {
-						console.log(error);
-					}
-				});
-				pear_contract.getStakeReward.call(y, function(error, info) {
-					if (!error) {
-						$( ".pear_steak_reward_" + y ).text(info);
-					} else {
-						console.log(error);
-					}
-				});
-				console.log(y);
-			}
+			console.log(info);
 		} else {
 			console.log(error);
 		}
@@ -111,8 +73,9 @@ function updateSteakStakeList() {
 			: '0x0000000000000000000000000000000000000001';
 	
 	
-	steak_contract.getAmountOfStakes.call(function(error, info) {
+	steak_contract.getStakes.call(function(error, info) {
 		if (!error) {
+			console.log(info);
 		} else {
 			console.log(error);
 		}

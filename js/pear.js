@@ -1,4 +1,4 @@
-pear_contract_address = "0xDb87464Ac327964bd62177d09B077Ef9e4f11d24";
+pear_contract_address = "0xF5aFbB4a780E1Fe4e34b7f7E0a4e2aFcA4b9f1b9";
 pear_abi = [
 	{
 		"inputs": [],
@@ -54,30 +54,6 @@ pear_abi = [
 		],
 		"name": "Transfer",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "_stakingOptions",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "rewardPercent",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "lockedTime",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -184,19 +160,6 @@ pear_abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "getAmountOfStakes",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -216,38 +179,13 @@ pear_abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stake_",
-				"type": "uint256"
-			}
-		],
-		"name": "getStakeAmount",
+		"inputs": [],
+		"name": "getStakes",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "uint256[][]",
 				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stake_",
-				"type": "uint256"
-			}
-		],
-		"name": "getStakeReward",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"type": "uint256[][]"
 			}
 		],
 		"stateMutability": "view",
@@ -288,25 +226,6 @@ pear_abi = [
 			}
 		],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "stake_",
-				"type": "uint256"
-			}
-		],
-		"name": "isStakeLocked",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
