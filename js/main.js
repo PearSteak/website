@@ -168,6 +168,9 @@ function updatePearStakeList() {
 			$.each(info, function( index, value ) {
 				var amount = (value[0]/1000000000000000000).toFixed(2);
 				var unlocks = secondsToHms(value[1]);
+				if (unlocks == "") {
+					console.log("Unlocked");
+				}
 				var earned = (value[2]/1000000000000000000).toFixed(2);
 				
 				$("#pear_stake_table").append("<tr>" + 
