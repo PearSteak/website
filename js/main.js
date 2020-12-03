@@ -16,9 +16,7 @@ window.addEventListener('load', () => {
 	setInterval(updateSteakTotalSupply, 10000);
 	updateSteakTotalSupply();
 	
-	setInterval(updatePearBalance, 10000);
 	updatePearBalance();
-	setInterval(updateSteakBalance, 10000);
 	updateSteakBalance();
 	
 	setInterval(updatePearStakeList, 10000);
@@ -102,17 +100,30 @@ function PearStake() {
 	
 	var stake_option = $(".pear-dropdown").val();
 	var stake_amount = $(".pear-amount").val();
-	console.log(stake_amount);
-	console.log(stake_option);
-	/*		
-	pear_contract.getStakes.call(function(error, info) {
+	pear_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
-			console.log(info);
+			console.log(hash);
 		} else {
 			console.log(error);
 		}
 	});
-	*/
+};
+
+function SteakStake() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var stake_option = $(".steak-dropdown").val();
+	var stake_amount = $(".steak-amount").val();
+	steak_contract.stake(stake_amount, stake_option, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+		} else {
+			console.log(error);
+		}
+	});
 };
 
 function updatePearStakeList() {
