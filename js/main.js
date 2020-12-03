@@ -72,8 +72,7 @@ function updatePearBalance() {
 		if (!error) {
 			var num = info;
 			num = num.toString().replace(/(\d)(?=(\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d)+(?!\d))/g, "$1.");
-			$(".pear-amount").val(parseInt(num).toFixed(2));
-			structurePearBalance()
+			$(".pear-amount").attr("placeholder",parseInt(num).toFixed(2));
 		} else {
 			console.log(error);
 		}
@@ -88,7 +87,9 @@ function updateSteakBalance() {
 			
 	steak_contract.getMyBalance.call(function(error, info) {
 		if (!error) {
-			$(".steak-amount").val(info);
+			var num = info;
+			num = num.toString().replace(/(\d)(?=(\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d\d)+(?!\d))/g, "$1.");
+			$(".steak-amount").val(parseInt(num).toFixed(2));
 		} else {
 			console.log(error);
 		}
