@@ -28,6 +28,7 @@ window.addEventListener('load', () => {
 	
 	pear_contract.staked({}, function (error, result) {
         if (!error) {
+			$(".pear-amount").val("");
 			updatePearBalance();
 			updatePearStakeList();
 		}else {
@@ -37,6 +38,7 @@ window.addEventListener('load', () => {
 	
 	steak_contract.staked({}, function (error, result) {
         if (!error) {
+			$(".steak-amount").val("");
 			updateSteakBalance();
 			updateSteakStakeList();
 		}else {
