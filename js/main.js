@@ -164,10 +164,9 @@ function updatePearStakeList() {
 			
 	pear_contract.getStakes.call(function(error, info) {
 		if (!error) {
-			//$(".pear_stake_table").empty();
+			$("#pear_stake_table").empty();
 			$.each(info, function( index, value ) {
-				console.log(index);
-				$(".pear_stake_table").append("<tr>" + 
+				$("#pear_stake_table").append("<tr>" + 
 													"<td>" + value[0] + "</td>" + 
 													"<td>" + secondsToHms(value[1]) + "</td>" + 
 													"<td>" + value[2] + "</td>" + 
