@@ -170,7 +170,7 @@ function updatePearStakeList() {
 													"<td>" + value[0] + "</td>" + 
 													"<td>" + secondsToHms(value[1]) + "</td>" + 
 													"<td>" + value[2] + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button\">Unstake!</button></td>" + 
+													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button\" disabled>Unstake!</button></td>" + 
 												"</tr>");
 			});
 		} else {
