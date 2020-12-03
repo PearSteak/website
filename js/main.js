@@ -26,6 +26,44 @@ window.addEventListener('load', () => {
 	setInterval(updateSteakStakeList, 10000);
 	updateSteakStakeList();
 	
+	pear_contract.staked({}, function (error, result) {
+        if (!error) {
+			updatePearBalance();
+			updatePearStakeList();
+		}else {
+			console.log(error);
+		}
+    });
+	
+	steak_contract.staked({}, function (error, result) {
+        if (!error) {
+			updateSteakBalance();
+			updateSteakStakeList();
+		}else {
+			console.log(error);
+		}
+    });
+	
+	pear_contract.unstaked({}, function (error, result) {
+        if (!error) {
+			updatePearTotalSupply();
+			updatePearStakeList();
+		}else {
+			console.log(error);
+		}
+    });
+	
+	steak_contract.unstaked({}, function (error, result) {
+        if (!error) {
+			updateSteakTotalSupply();
+			updateSteakStakeList();
+		}else {
+			console.log(error);
+		}
+    });
+	
+	
+	
 	$(".pear_contract").text(pear_contract_address);
 	$(".steak_contract").text(steak_contract_address);
 });
