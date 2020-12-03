@@ -166,7 +166,7 @@ function updatePearStakeList() {
 	pear_contract.getStakes.call(function(error, info) {
 		if (!error) {
 			$.each(info, function( index, value ) {
-				console.log(value["c"]);
+				console.log(value[0]);
 			});
 		} else {
 			console.log(error);
