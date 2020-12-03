@@ -102,9 +102,34 @@ body {
 }
 
 .salesdiv {
+	text-align: center;
 	position: fixed;
-	bottom: 15px;
-	background: blue;
+	bottom: 30px;
 	margin: auto;
-	width: 50%;
+	width: 100%;
+}
+
+.group {
+	display: inline-block;
+	text-align: center;
+	border-style: solid;
+	border-color: #234882;
+	background-color: #8fbaff; 
+	padding: 25px;
+	padding-top: 10px;
+	border-radius: 25px;
+}
+
+.group p {
+	font-family: Brush Script MT,cursive; 
+	color: #234882;
+	font-weight: bold;
+}
+
+.group button {
+	width: 100%;
+}
+
+.group input { 
+    text-align: center; 
 }
