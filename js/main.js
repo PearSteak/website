@@ -174,7 +174,7 @@ function updatePearStakeList() {
 													"<td>" + amount + "</td>" + 
 													"<td>" + unlocks + "</td>" + 
 													"<td>" + earned + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-success btn-sm unstake-button pear_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+													"<td><button type=\"button\" onclick=\"unstakePear(" + index + ");\" class=\"btn btn-success btn-sm unstake-button pear_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
 												"</tr>");
 				if (unlocks == "") {
 					$(".pear_unstake_" + index).prop('disabled', false);
@@ -204,7 +204,7 @@ function updateSteakStakeList() {
 													"<td>" + amount + "</td>" + 
 													"<td>" + unlocks + "</td>" + 
 													"<td>" + earned + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button steak_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+													"<td><button type=\"button\" onclick=\"unstakeSteak(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button steak_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
 												"</tr>");
 				if (unlocks == "") {
 					$(".steak_unstake_" + index).prop('disabled', false);
@@ -215,6 +215,26 @@ function updateSteakStakeList() {
 		}
 	});
 };
+
+function unstakePear(_stake) {
+	pear_contract.unstake(_stake, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+		} else {
+			console.log(error);
+		}
+	});
+}
+
+function unstakeSteak(_stake) {
+	steak_contract.unstake(_stake, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+		} else {
+			console.log(error);
+		}
+	});
+}
 
 $(function(){
 	$(".pear-flexible").click(function(){
