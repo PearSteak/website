@@ -72,25 +72,25 @@ function updatePearStakeList() {
 						'</tr>');
 				}
 			}
-			for (i = 0; i < amountOfStakes; i++) {
-				pear_contract.getStakeAmount.call(i, function(error, info) {
-					console.log(i);
+			for (y = 0; y < amountOfStakes; y++) {
+				pear_contract.getStakeAmount.call(y, function(error, info) {
+					console.log(y);
 					if (!error) {
-						$( ".pear_steak_amount_" + i ).text((info/1000000000000000000).toFixed(2));
+						$( ".pear_steak_amount_" + y ).text((info/1000000000000000000).toFixed(2));
 					} else {
 						console.log(error);
 					}
 				});
-				pear_contract.getRemainingLockTime.call(i, function(error, info) {
+				pear_contract.getRemainingLockTime.call(y, function(error, info) {
 					if (!error) {
-						$( ".pear_steak_remaining_" + i ).text(info);
+						$( ".pear_steak_remaining_" + y ).text(info);
 					} else {
 						console.log(error);
 					}
 				});
-				pear_contract.getStakeReward.call(i, function(error, info) {
+				pear_contract.getStakeReward.call(y, function(error, info) {
 					if (!error) {
-						$( ".pear_steak_reward_" + i ).text(info);
+						$( ".pear_steak_reward_" + y ).text(info);
 					} else {
 						console.log(error);
 					}
