@@ -71,13 +71,11 @@ function updatePearStakeList() {
 							'<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>' +
 						'</tr>');
 				}
-			} else {
-				console.log("updating");
-				for (i = 0; i < amountOfStakes; i++) {
-					$( ".pear_steak_amount_" + i ).text("0");
-					$( ".pear_steak_remaining_" + i ).text("0");
-					$( ".pear_steak_reward_" + i ).text("0");
-				}
+			}
+			for (i = 0; i < amountOfStakes; i++) {
+				$( ".pear_steak_amount_" + i ).text("0");
+				$( ".pear_steak_remaining_" + i ).text("0");
+				$( ".pear_steak_reward_" + i ).text("0");
 			}
 		} else {
 			console.log(error);
