@@ -200,7 +200,7 @@ function updateSteakStakeList() {
 				var unlocks = secondsToHms(value[1]);
 				var earned = (value[2]/1000000000000000000).toFixed(2);
 				
-				$("#pear_stake_table").append("<tr>" + 
+				$("#steak_stake_table").append("<tr>" + 
 													"<td>" + amount + "</td>" + 
 													"<td>" + unlocks + "</td>" + 
 													"<td>" + earned + "</td>" + 
