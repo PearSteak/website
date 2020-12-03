@@ -166,6 +166,7 @@ function updatePearStakeList() {
 		if (!error) {
 			$(".pear_stake_table").empty();
 			$.each(info, function( index, value ) {
+				console.log(index);
 				$(".pear_stake_table").append("<tr>" + 
 													"<td>" + value[0] + "</td>" + 
 													"<td>" + secondsToHms(value[1]) + "</td>" + 
