@@ -83,6 +83,7 @@ function updatePearStakeList() {
 				});
 				pear_contract.getRemainingLockTime.call(i, function(error, info) {
 					if (!error) {
+						console.log(info)
 						$( ".pear_steak_remaining_" + i ).text(info);
 					} else {
 						console.log(error);
@@ -90,6 +91,7 @@ function updatePearStakeList() {
 				});
 				pear_contract.getStakeReward.call(i, function(error, info) {
 					if (!error) {
+						console.log(info)
 						$( ".pear_steak_reward_" + i ).text(info);
 					} else {
 						console.log(error);
