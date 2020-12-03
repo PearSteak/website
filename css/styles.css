@@ -54,12 +54,13 @@ body {
 	border-style: solid;
 	border-color: #00691e;
 	background-color: #bdffd0; 
-	padding: 5px;
+	padding: 10px;
 	border-radius: 25px;
 	position: absolute;
 	left: 20px;
-	top: 20px;
+	top: 10px;
 	font-weight: bold;
+	text-align: left;
 }
 
 .steakTotalSupply {
@@ -67,12 +68,13 @@ body {
 	border-style: solid;
 	border-color: #9c0e16;
 	background-color: #ffb3b7; 
-	padding: 5px;
+	padding: 10px;
 	border-radius: 25px;
 	position: absolute;
 	right: 20px;
-	top: 20px;
+	top: 10px;
 	font-weight: bold;
+	text-align: right;
 }
 
 #pearImg {

@@ -1,4 +1,4 @@
-pear_contract_address = "0xcCefcD7bd83C39f61F5F7a6f7225a4fD778BdFFE";
+pear_contract_address = "0xBD7dF7ea1717248E38A1B9f4fd1Dde1ac071B389";
 pear_abi = [
 	{
 		"inputs": [],
@@ -319,6 +319,19 @@ pear_abi = [
 			}
 		],
 		"name": "setMinter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sales_",
+				"type": "address"
+			}
+		],
+		"name": "setSales",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

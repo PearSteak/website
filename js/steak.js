@@ -1,4 +1,4 @@
-steak_contract_address = "0xFCd8631374Cbe61669eF6bc3c9d0cAAf950e30DC";
+steak_contract_address = "0x9641f3Daae5d1cC02DC38bfe665d818697275c3B";
 steak_abi = [
 	{
 		"inputs": [],
@@ -319,6 +319,19 @@ steak_abi = [
 			}
 		],
 		"name": "setMinter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sales_",
+				"type": "address"
+			}
+		],
+		"name": "setSales",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
