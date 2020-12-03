@@ -168,17 +168,18 @@ function updatePearStakeList() {
 			$.each(info, function( index, value ) {
 				var amount = (value[0]/1000000000000000000).toFixed(2);
 				var unlocks = secondsToHms(value[1]);
-				if (unlocks == "") {
-					console.log("Unlocked");
-				}
 				var earned = (value[2]/1000000000000000000).toFixed(2);
 				
 				$("#pear_stake_table").append("<tr>" + 
 													"<td>" + amount + "</td>" + 
 													"<td>" + unlocks + "</td>" + 
 													"<td>" + earned + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button\" disabled>Unstake!</button></td>" + 
+													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button pear_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
 												"</tr>");
+				if (unlocks == "") {
+					$("#pear_unstake_" + index).prop('disabled', false);
+				}
+				$('.enableOnInput').prop('disabled', false);
 			});
 		} else {
 			console.log(error);
