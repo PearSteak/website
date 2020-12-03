@@ -65,17 +65,35 @@ function updatePearStakeList() {
 				$("#pear_stake_table").empty();
 				for (i = 0; i < amountOfStakes; i++) {
 					$( "#pear_stake_table" ).append('<tr>' +
-							'<td class="pear_steak_amount_' + i + '">getStakeAmount (i)</td>' +
-							'<td class="pear_steak_remaining_' + i + '"> getRemainingLockTime (i) if 0 = unlocked, if not grey out unstake button</td>' +
-							'<td class="pear_steak_reward_' + i + '">getStakeReward (i)</td>' +
+							'<td class="pear_steak_amount_' + i + '"></td>' +
+							'<td class="pear_steak_remaining_' + i + '"></td>' +
+							'<td class="pear_steak_reward_' + i + '"></td>' +
 							'<td><button type="button" onclick="unstake();" class="btn btn-success btn-sm unstake-button">Unstake!</button></td>' +
 						'</tr>');
 				}
 			}
 			for (i = 0; i < amountOfStakes; i++) {
-				$( ".pear_steak_amount_" + i ).text("0");
-				$( ".pear_steak_remaining_" + i ).text("0");
-				$( ".pear_steak_reward_" + i ).text("0");
+				pear_contract.getStakeAmount.call(i, function(error, info) {
+					if (!error) {
+						$( ".pear_steak_amount_" + i ).text(info);
+					} else {
+						console.log(error);
+					}
+				});
+				pear_contract.getRemainingLockTime.call(i, function(error, info) {
+					if (!error) {
+						$( ".pear_steak_remaining_" + i ).text(info);
+					} else {
+						console.log(error);
+					}
+				});
+				pear_contract.getStakeReward.call(i, function(error, info) {
+					if (!error) {
+						$( ".pear_steak_reward_" + i ).text(info);
+					} else {
+						console.log(error);
+					}
+				});
 			}
 		} else {
 			console.log(error);
