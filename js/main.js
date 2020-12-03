@@ -164,7 +164,7 @@ function updatePearStakeList() {
 			
 	pear_contract.getStakes.call(function(error, info) {
 		if (!error) {
-			$(".pear_stake_table").empty();
+			//$(".pear_stake_table").empty();
 			$.each(info, function( index, value ) {
 				console.log(index);
 				$(".pear_stake_table").append("<tr>" + 
