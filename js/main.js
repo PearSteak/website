@@ -61,6 +61,7 @@ function updatePearStakeList() {
 		if (!error) {
 			var amountOfStakes = info["c"][0];
 			if ($( "#pear_stake_table tr").length != amountOfStakes) {
+				console.log("creating");
 				$("#pear_stake_table").empty();
 				for (i = 0; i < amountOfStakes; i++) {
 					$( "#pear_stake_table" ).append('<tr>' +
@@ -71,6 +72,7 @@ function updatePearStakeList() {
 						'</tr>');
 				}
 			} else {
+				console.log("updating");
 				for (i = 0; i < amountOfStakes; i++) {
 					$( ".pear_steak_amount_" + i ).text("0");
 					$( ".pear_steak_remaining_" + i ).text("0");
