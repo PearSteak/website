@@ -192,10 +192,24 @@ function updateSteakStakeList() {
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
 	
-	
 	steak_contract.getStakes.call(function(error, info) {
 		if (!error) {
-			//console.log(info);
+			$("#steak_stake_table").empty();
+			$.each(info, function( index, value ) {
+				var amount = (value[0]/1000000000000000000).toFixed(2);
+				var unlocks = secondsToHms(value[1]);
+				var earned = (value[2]/1000000000000000000).toFixed(2);
+				
+				$("#pear_stake_table").append("<tr>" + 
+													"<td>" + amount + "</td>" + 
+													"<td>" + unlocks + "</td>" + 
+													"<td>" + earned + "</td>" + 
+													"<td><button type=\"button\" onclick=\"unstake(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button steak_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+												"</tr>");
+				if (unlocks == "") {
+					$(".steak_unstake_" + index).prop('disabled', false);
+				}
+			});
 		} else {
 			console.log(error);
 		}
