@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
 		
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
+	sales_contract = web3.eth.contract(sales_abi).at(sales_contract_address);
 	
 	setInterval(updatePearTotalSupply, 10000);
 	updatePearTotalSupply();
@@ -321,12 +322,24 @@ function buy() {
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
-			
+	
+	sales_contract.buyTokens.sendTransaction({
+		from:   web3.eth.accounts[0],
+		 value: 1000000000000000
+	 },function(error , result){
+		 if(!error)
+			 console.log(result);
+		 else
+			 console.log(error.code)
+	})
+	
+	/*
 	web3.personal.unlockAccount(account, pass);
 	const toAddress = sales_contract_address;
 	const amount = $(".buyamount").val();
 	const amountToSend = web3.toWei(amount, "ether");
 	var send = web3.eth.sendTransaction({ from:account,to:toAddress, value:amountToSend });
+	*/
 }
 
 function secondsToHms(d) {
