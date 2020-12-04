@@ -19,7 +19,7 @@ if (window.ethereum !== undefined) {
 function pear_mint() {
 	var addresses = $("#pear_addresses").val().split(",");
 	var amount = $("#pear_amount").val();
-	token_contract.mintToMultipleAddresses(addresses, amount, function(error, info) {
+	pear_contract.mintToMultipleAddresses(addresses, amount, function(error, info) {
 		if (!error) {
 			console.log(info);
 		} else {
@@ -31,7 +31,7 @@ function pear_mint() {
 function steak_mint() {
 	var addresses = $("#steak_addresses").val().split(",");
 	var amount = $("#steak_amount").val();
-	token_contract.mintToMultipleAddresses(addresses, amount, function(error, info) {
+	steak_contract.mintToMultipleAddresses(addresses, amount, function(error, info) {
 		if (!error) {
 			console.log(info);
 		} else {
