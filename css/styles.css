@@ -135,13 +135,30 @@ body {
 	background-color: #8fbaff; 
 	padding: 25px;
 	padding-top: 10px;
-	border-radius: 25px;
-	width: 75%;
-	display: table;
+	border-radius:25px;
+	width: 90%;
+	/* display: table; */
+	max-height: 95%;
 	margin: 0 auto;
 	font-family: Brush Script MT,cursive; 
 	color: #234882;
+	overflow-x: auto;
 }
+
+
+.infotext::-webkit-scrollbar {
+	width: 8px;
+	border-radius: 8px;
+  }
+  
+.infotext::-webkit-scrollbar-track {
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 8px rgba(255,255,255,0); 
+  } 
+.infotext::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: rgba(255,255,255,0.3); 
+  }
 
 .salesdiv {
 	text-align: center;
