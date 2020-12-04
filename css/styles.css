@@ -63,7 +63,7 @@ body {
 
 @font-face {
   font-family: font;
-  src: url(fonts/ComicNeueSansID.ttf);
+  src: url("../fonts/ComicNeueSansID.ttf");
 }
 
 .pear {
