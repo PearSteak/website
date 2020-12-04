@@ -140,6 +140,42 @@ function updateSteakBalance() {
 	});
 };
 
+$(function(){
+	$(".pear-flexible").click(function(){
+		$(".pear-dropdown").html("Flexible <span class=\"caret\"></span>");
+		$(".pear-dropdown").val(0);
+	});
+	$(".pear-7days").click(function(){
+		$(".pear-dropdown").html("7-days <span class=\"caret\"></span>");
+		$(".pear-dropdown").val(1);
+	});
+	$(".pear-30days").click(function(){
+		$(".pear-dropdown").html("30-days <span class=\"caret\"></span>");
+		$(".pear-dropdown").val(2);
+	});
+	$(".pear-365days").click(function(){
+		$(".pear-dropdown").html("365-days <span class=\"caret\"></span>");
+		$(".pear-dropdown").val(3);
+	});
+	
+	$(".steak-flexible").click(function(){
+		$(".steak-dropdown").html("Flexible <span class=\"caret\"></span>");
+		$(".steak-dropdown").val(0);
+	});
+	$(".steak-7days").click(function(){
+		$(".steak-dropdown").html("7-days <span class=\"caret\"></span>");
+		$(".steak-dropdown").val(1);
+	});
+	$(".steak-30days").click(function(){
+		$(".steak-dropdown").html("30-days <span class=\"caret\"></span>");
+		$(".steak-dropdown").val(2);
+	});
+	$(".steak-365days").click(function(){
+		$(".steak-dropdown").html("365-days <span class=\"caret\"></span>");
+		$(".steak-dropdown").val(3);
+	});
+});
+
 function PearStake() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
@@ -280,42 +316,18 @@ function unstakeSteak(_stake) {
 	});
 }
 
-$(function(){
-	$(".pear-flexible").click(function(){
-		$(".pear-dropdown").html("Flexible <span class=\"caret\"></span>");
-		$(".pear-dropdown").val(0);
-	});
-	$(".pear-7days").click(function(){
-		$(".pear-dropdown").html("7-days <span class=\"caret\"></span>");
-		$(".pear-dropdown").val(1);
-	});
-	$(".pear-30days").click(function(){
-		$(".pear-dropdown").html("30-days <span class=\"caret\"></span>");
-		$(".pear-dropdown").val(2);
-	});
-	$(".pear-365days").click(function(){
-		$(".pear-dropdown").html("365-days <span class=\"caret\"></span>");
-		$(".pear-dropdown").val(3);
-	});
-	
-	$(".steak-flexible").click(function(){
-		$(".steak-dropdown").html("Flexible <span class=\"caret\"></span>");
-		$(".steak-dropdown").val(0);
-	});
-	$(".steak-7days").click(function(){
-		$(".steak-dropdown").html("7-days <span class=\"caret\"></span>");
-		$(".steak-dropdown").val(1);
-	});
-	$(".steak-30days").click(function(){
-		$(".steak-dropdown").html("30-days <span class=\"caret\"></span>");
-		$(".steak-dropdown").val(2);
-	});
-	$(".steak-365days").click(function(){
-		$(".steak-dropdown").html("365-days <span class=\"caret\"></span>");
-		$(".steak-dropdown").val(3);
-	});
-});
-
+function buy() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	web3.personal.unlockAccount(account, pass);
+	const toAddress = sales_contract_address;
+	const amount = $(".buyamount").val();
+	const amountToSend = web3.toWei(amount, "ether");
+	var send = web3.eth.sendTransaction({ from:account,to:toAddress, value:amountToSend });
+}
 
 function secondsToHms(d) {
     d = Number(d);

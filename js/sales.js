@@ -1,5 +1,5 @@
-pear_contract_address = "0xD9452539Ff5e95330E3A54d7f5a4982dd6314280";
-pear_abi = [
+sales_contract_address = "0xD9452539Ff5e95330E3A54d7f5a4982dd6314280";
+sales_abi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
