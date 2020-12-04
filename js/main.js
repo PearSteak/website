@@ -67,8 +67,6 @@ window.addEventListener('load', () => {
 	
 	sales_contract.bought({}, function (error, result) {
         if (!error) {
-			$(".pear-amount").val("");
-			$(".steak-amount").val("");
 			updatePearTotalSupply();
 			updateSteakTotalSupply();
 			updatePearBalance();
