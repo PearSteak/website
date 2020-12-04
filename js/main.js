@@ -29,7 +29,6 @@ window.addEventListener('load', () => {
 	
 	pear_contract.staked({}, function (error, result) {
         if (!error) {
-			$(".pear-amount").val("");
 			updatePearBalance();
 			updatePearStakeList();
 		}else {
@@ -39,7 +38,6 @@ window.addEventListener('load', () => {
 	
 	steak_contract.staked({}, function (error, result) {
         if (!error) {
-			$(".steak-amount").val("");
 			updateSteakBalance();
 			updateSteakStakeList();
 		}else {
@@ -214,6 +212,9 @@ function PearStake() {
 	pear_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
 			console.log(hash);
+			$(".pear-amount").val("");
+			$(".pear-dropdown").html("Option <span class=\"caret\"></span>");
+			$(".pear-dropdown").val();
 		} else {
 			console.log(error);
 		}
@@ -244,6 +245,9 @@ function SteakStake() {
 	steak_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
 			console.log(hash);
+			$(".steak-amount").val("");
+			$(".steak-dropdown").html("Option <span class=\"caret\"></span>");
+			$(".steak-dropdown").val();
 		} else {
 			console.log(error);
 		}
@@ -336,7 +340,7 @@ function buy() {
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
 			
-	const amount = $(".buyamount").val();
+	var amount = $(".buyamount").val();
 	if (amount.lastIndexOf(".") != -1) {
 		var dotPos = amount.lastIndexOf(".");
 		var amountOfZeroesNeeded = 18 - (amount.length - (dotPos+1));
