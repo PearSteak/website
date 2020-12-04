@@ -61,13 +61,18 @@ body {
   clear: both;
 }
 
+@font-face {
+  font-family: ComicNeueSansID;
+  src: url(fonts/ComicNeueSansID.ttf);
+}
+
 .pear {
-	font-family: Brush Script MT,cursive; 
+	font-family: ComicNeueSansID,cursive; 
 	color: #00691e;
 }
 
 .steak {
-	font-family: Brush Script MT,cursive; 
+	font-family: ComicNeueSansID,cursive; 
 	color: #9c0e16;
 }
 
