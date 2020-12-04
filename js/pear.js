@@ -1,4 +1,4 @@
-pear_contract_address = "0x463F0980A15C2B84AcB18325986cE9b4592911A8";
+pear_contract_address = "0xBed3F2662a1d7861f971b64C5c8AC87f5A79208a";
 pear_abi = [
 	{
 		"inputs": [],
@@ -200,6 +200,19 @@ pear_abi = [
 	{
 		"inputs": [],
 		"name": "getMyBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMyFullBalance",
 		"outputs": [
 			{
 				"internalType": "uint256",

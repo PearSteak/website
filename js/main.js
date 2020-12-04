@@ -100,6 +100,20 @@ function updatePearTotalSupply() {
 		} else {
 			console.log(error);
 		}
+	});			
+	pear_contract.getMyBalance.call(function(error, info) {
+		if (!error) {
+			$(".pearTotalbalance_num").text((info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});			
+	pear_contract.getMyFullBalance.call(function(error, info) {
+		if (!error) {
+			$(".pearTotalbalance_num").text((info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
 	});	
 };
 
@@ -115,7 +129,21 @@ function updateSteakTotalSupply() {
 		} else {
 			console.log(error);
 		}
-	});
+	});		
+	steak_contract.getMyBalance.call(function(error, info) {
+		if (!error) {
+			$(".steakTotalbalance_num").text((info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});			
+	steak_contract.getMyFullBalance.call(function(error, info) {
+		if (!error) {
+			$(".steakTotalbalance_num").text((info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});	
 };
 
 function updatePearBalance() {

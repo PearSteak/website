@@ -22,7 +22,9 @@
 	<div class="row">
 		<div class="column pear">
 			<div class="pearTotalSupply">
-				Total supply: <span class="pearTotalSupply_num"></span>
+				Total supply: <span class="pearTotalSupply_num"></span><br/>
+				Total balance: <span class="pearTotalbalance_num"></span><br/>
+				Available balance: <span class="pearTotalbalance_num"></span>
 			</div>
 			<br/><br/>
 			<h1>Pear</h1>
@@ -64,54 +66,54 @@
 				<tbody id="pear_stake_table">
 				</tbody>
 			</table>
-			<div id="pearImg"></div>
+		<div id="pearImg"></div>
+		</div>
+		<div class="column steak">
+			<div class="steakTotalSupply">
+				<span class="steakTotalSupply_num"></span> :Total supply<br/>
+				<span class="pearTotalbalance_num"></span> :Total balance<br/>
+				<span class="pearTotalbalance_num"></span> :Available balance
 			</div>
-			<div class="column steak">
-				<div class="steakTotalSupply">
-					Total supply: <span class="steakTotalSupply_num"></span>
-				</div>
-				<br/><br/>
-				<h1>Steak</h1>
-				<p>Contract: <span class="steak_contract"></span></p>
-				<table class="stakeTable stakesubmit">
-					<thead>
-						<tr>
-							<th scope="col" colspan="3" style="text-align: center;">Stake</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style="width: 80%"><input type="text" class="form-control steak-amount" placeholder="Amount"></td>
-							<td style="width: 10%">
-								<div class="dropdown">
-									<button class="btn btn-danger dropdown-toggle steak-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
-									<ul class="dropdown-menu">
-										<li><a href="#" class="steak-flexible">Flexible, 1000% APY</a></li>
-										<li><a href="#" class="steak-7days">7-days, 2000% APY</a></li>
-										<li><a href="#" class="steak-30days">30-days, 3500% APY</a></li>
-										<li><a href="#" class="steak-365days">365-days, 5000% APY</a></li>
-									</ul>
-								</div>
-							</td>
-							<td style="width: 10%"><button class="btn btn-danger" type="button" onclick="SteakStake();">Stake!</button></td>
-						</tr>
-					</tbody>
-				</table>
-				<br />
-				<section class="d-flex">
-					<table class="table-hover stakeTable stakelist">
-						<thead>
-							<tr>
-								<th scope="col" style="width: 30%">Amount</th>
-								<th scope="col" style="width: 30%">Unlocks</th>
-								<th scope="col" style="width: 30%">Earned</th>
-								<th scope="col" style="width: 10%"></th>
-							</tr>
-						</thead>
-					<tbody id="steak_stake_table">
-					</tbody>
-				</table>
-			</section>
+			<br/><br/>
+			<h1>Steak</h1>
+			<p>Contract: <span class="steak_contract"></span></p>
+			<table class="stakeTable stakesubmit">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control steak-amount" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-danger dropdown-toggle steak-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="steak-flexible">Flexible, 1000% APY</a></li>
+									<li><a href="#" class="steak-7days">7-days, 2000% APY</a></li>
+									<li><a href="#" class="steak-30days">30-days, 3500% APY</a></li>
+									<li><a href="#" class="steak-365days">365-days, 5000% APY</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button class="btn btn-danger" type="button" onclick="SteakStake();">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<table class="table-hover stakeTable stakelist">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 15%">Amount</th>
+						<th scope="col" style="width: 60%">Unlocks</th>
+						<th scope="col" style="width: 15%">Earned</th>
+						<th scope="col" style="width: 10%"></th>
+					</tr>
+				</thead>
+				<tbody id="steak_stake_table">
+				</tbody>
+			</table>
 			<div id="steakImg"></div>
 		</div>
 	</div>
