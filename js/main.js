@@ -1,4 +1,7 @@
 window.addEventListener('load', () => {
+	setInterval(updateDeal, 1000);
+	updateDeal();
+	
 	if(typeof(web3) === 'undefined') {
 		return console.log("Metamask is not installed");
 	}
@@ -26,6 +29,9 @@ window.addEventListener('load', () => {
 	updatePearStakeList();
 	setInterval(updateSteakStakeList, 10000);
 	updateSteakStakeList();
+	
+	setInterval(updateDeal, 1000);
+	updateDeal();
 	
 	pear_contract.staked({}, function (error, result) {
         if (!error) {
@@ -75,8 +81,6 @@ window.addEventListener('load', () => {
 			console.log(error);
 		}
     });
-	
-	
 	
 	$(".pear_contract").text(pear_contract_address);
 	$(".steak_contract").text(steak_contract_address);
@@ -363,6 +367,13 @@ function unstakeSteak(_stake) {
 		}
 	});
 }
+
+function updateDeal() {
+	var now = new Date;
+	var utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
+		  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+	$("#deal").val(utc_timestamp);
+};
 
 function buy() {
 	var account =
