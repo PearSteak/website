@@ -62,17 +62,17 @@ body {
 }
 
 @font-face {
-  font-family: ComicNeueSansID;
-  src: url(fonts/ComicNeueSansID.ttf);
+  font-family: font;
+  src: url(sansation_light.woff);
 }
 
 .pear {
-	font-family: ComicNeueSansID,cursive; 
+	font-family: font; 
 	color: #00691e;
 }
 
 .steak {
-	font-family: ComicNeueSansID,cursive; 
+	font-family: font; 
 	color: #9c0e16;
 }
 
@@ -172,7 +172,7 @@ body {
 	/* display: table; */
 	max-height: 95%;
 	margin: 0 auto;
-	font-family: Brush Script MT,cursive; 
+	font-family: font; 
 	color: #234882;
 	overflow-x: auto;
 }
@@ -213,7 +213,7 @@ body {
 }
 
 .group p {
-	font-family: Brush Script MT,cursive; 
+	font-family: font; 
 	color: #234882;
 	font-weight: bold;
 }
