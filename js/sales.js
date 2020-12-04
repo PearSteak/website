@@ -1,9 +1,28 @@
-sales_contract_address = "0xD9452539Ff5e95330E3A54d7f5a4982dd6314280";
+sales_contract_address = "0xE47DdE922501091Fe600B02C50Cc4F1708AC069c";
 sales_abi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "bought",
+		"type": "event"
 	},
 	{
 		"inputs": [],

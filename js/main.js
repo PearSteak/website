@@ -67,6 +67,19 @@ window.addEventListener('load', () => {
 		}
     });
 	
+	sales_contract.bought({}, function (error, result) {
+        if (!error) {
+			$(".pear-amount").val("");
+			$(".steak-amount").val("");
+			updatePearTotalSupply();
+			updateSteakTotalSupply();
+			updatePearBalance();
+			updateSteakBalance();
+		}else {
+			console.log(error);
+		}
+    });
+	
 	
 	
 	$(".pear_contract").text(pear_contract_address);
@@ -322,24 +335,30 @@ function buy() {
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
 			: '0x0000000000000000000000000000000000000001';
+			
+	const amount = $(".buyamount").val();
+	if (amount.lastIndexOf(".") != -1) {
+		var dotPos = amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			amount = amount.concat("0");
+		}
+		amount = amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (amount.length < 18) {
+			amount = amount.concat("000000000000000000");
+		}
+	}
 	
 	sales_contract.buyTokens.sendTransaction({
-		from:   web3.eth.accounts[0],
-		 value: 1000000000000000
+		from: web3.eth.accounts[0],
+		value: amount
 	 },function(error , result){
 		 if(!error)
 			 console.log(result);
 		 else
 			 console.log(error.code)
-	})
-	
-	/*
-	web3.personal.unlockAccount(account, pass);
-	const toAddress = sales_contract_address;
-	const amount = $(".buyamount").val();
-	const amountToSend = web3.toWei(amount, "ether");
-	var send = web3.eth.sendTransaction({ from:account,to:toAddress, value:amountToSend });
-	*/
+	});
 }
 
 function secondsToHms(d) {
