@@ -12,6 +12,33 @@ body {
   box-sizing: border-box;
 }
 
+.infodiv {
+	text-align: center;
+	position: fixed;
+	top: 10px;
+	margin: auto;
+	width: 100%;
+	font-size: 50px;
+}
+
+.infobar {
+	display: inline-block;
+	text-align: center;
+	padding: 25px;
+	padding-top: 10px;
+	border-radius: 25px;
+}
+
+.infobar a {
+	color: white;
+}
+.infobar a:visited {
+	color: white;
+}
+.infobar a:hover {
+	color: #234882;
+}
+
 .stakesubmit .btn {
 	margin-left: 1px;
 }
@@ -103,7 +130,7 @@ body {
 
 .infobutton {
 	position: fixed;
-	top: 75px;
+	bottom: 25px;
 	width: 100%;
 	text-align: center;
 }
@@ -163,7 +190,7 @@ body {
 .salesdiv {
 	text-align: center;
 	position: fixed;
-	bottom: 30px;
+	bottom: 100px;
 	margin: auto;
 	width: 100%;
 }
