@@ -1,4 +1,4 @@
-sales_contract_address = "0x31907190eE136c44EFC4E1005742E30E29d52a89";
+sales_contract_address = "0xAdA09982DD486c5dB0Ce11e9D0c8e2bDc2fF2571";
 sales_abi = [
 	{
 		"inputs": [],
@@ -59,6 +59,19 @@ sales_abi = [
 			}
 		],
 		"name": "setSteak",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "stopped_",
+				"type": "bool"
+			}
+		],
+		"name": "stopSaled",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

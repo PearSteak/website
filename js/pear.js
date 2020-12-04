@@ -1,4 +1,4 @@
-pear_contract_address = "0xBed3F2662a1d7861f971b64C5c8AC87f5A79208a";
+pear_contract_address = "0x0E8112DDd4354C2b07512Cac1d7AEAeafDe8bBF6";
 pear_abi = [
 	{
 		"inputs": [],
@@ -68,6 +68,12 @@ pear_abi = [
 				"indexed": false,
 				"internalType": "uint256",
 				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "lockedTime",
 				"type": "uint256"
 			}
 		],
@@ -344,6 +350,24 @@ pear_abi = [
 			}
 		],
 		"name": "mint",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "_addresses",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "mintToMultipleAddresses",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

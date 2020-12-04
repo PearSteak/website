@@ -1,4 +1,4 @@
-steak_contract_address = "0x3123740720E3160c75f595EE344B2d047F018fC5";
+steak_contract_address = "0xFb6D4bF7aA9387B84FC858ecd0cAB406036CE57c";
 steak_abi = [
 	{
 		"inputs": [],
@@ -68,6 +68,12 @@ steak_abi = [
 				"indexed": false,
 				"internalType": "uint256",
 				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "lockedTime",
 				"type": "uint256"
 			}
 		],
@@ -344,6 +350,24 @@ steak_abi = [
 			}
 		],
 		"name": "mint",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "_addresses",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "mintToMultipleAddresses",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
