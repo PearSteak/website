@@ -1,4 +1,4 @@
-sales_contract_address = "0xAdA09982DD486c5dB0Ce11e9D0c8e2bDc2fF2571";
+sales_contract_address = "0xbAc6FE17dc7eD282CD6bC75C91594625A91c2Dd8";
 sales_abi = [
 	{
 		"inputs": [],

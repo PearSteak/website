@@ -1,4 +1,4 @@
-pear_contract_address = "0x0E8112DDd4354C2b07512Cac1d7AEAeafDe8bBF6";
+pear_contract_address = "0x49B0103EAECF6126C5C3c318B1Af2a76f0f2B2CE";
 pear_abi = [
 	{
 		"inputs": [],
