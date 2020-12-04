@@ -370,9 +370,9 @@ function unstakeSteak(_stake) {
 
 function updateDeal() {
 	var now = new Date;
-	var utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
-		  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
-	$("#deal").val(utc_timestamp);
+	var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate() , 
+      now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
+	$("#deal").text(secondsToHms(1607720400 - Math.floor(utc_timestamp / 1000)));
 };
 
 function buy() {
