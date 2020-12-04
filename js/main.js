@@ -144,6 +144,14 @@ function updateSteakTotalSupply() {
 	});		
 };
 
+function openInfoModal() {
+	$("#infoModal").show();
+}
+
+function closeInfoModal() {
+	$("#infoModal").hide();
+}
+
 function updatePearBalance() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
