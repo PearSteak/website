@@ -223,6 +223,14 @@ $(function(){
 });
 
 function PearStake() {
+	if ($(".pear-amount").val() == "") {
+		$(".pear-amount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".pear-amount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".pear-amount").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
@@ -256,6 +264,14 @@ function PearStake() {
 };
 
 function SteakStake() {
+	if ($(".steak-amount").val() == "") {
+		$(".steak-amount").css('box-shadow', '0px 0px 10px #00CC00');
+		$(".steak-amount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".steak-amount").css('box-shadow', '0px 0px 0px #00CC00');
+	}
+	
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
@@ -376,6 +392,14 @@ function updateDeal() {
 };
 
 function buy() {
+	if ($(".buyamount").val() == "") {
+		$(".buyamount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".buyamount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".buyamount").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
