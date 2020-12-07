@@ -79,7 +79,7 @@ body {
 .stakeTable {
 	width:80%;
 	margin: 0 auto;
-	text-align: left;
+	text-align: center;
 }
 
 .pearTotalSupply {
@@ -169,7 +169,6 @@ body {
 	padding-top: 10px;
 	border-radius:25px;
 	width: 90%;
-	/* display: table; */
 	max-height: 95%;
 	margin: 0 auto;
 	font-family: font; 
