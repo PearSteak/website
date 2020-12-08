@@ -1,4 +1,4 @@
-sales_contract_address = "0x617a861ADf8d72A4c9Fff3c1CCb863a0Fdfcb6d7";
+sales_contract_address = "0x7f628F69D3a26BeDe435b1C29AEaF13e3b0c675F";
 sales_abi = [
 	{
 		"inputs": [],
@@ -35,6 +35,19 @@ sales_abi = [
 			}
 		],
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "owner_",
+				"type": "address"
+			}
+		],
+		"name": "setOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
