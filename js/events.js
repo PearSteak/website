@@ -24,12 +24,18 @@ window.addEventListener('load', () => {
 	})
 	.on('error', console.error);
 	*/
+	
+	/*
 	pear_contract.contract.getPastEvents('allEvents', {
 		fromBlock: 0,
 		toBlock: 'latest'
 	});
+	*/
 
-	pear_contract.staked({fromBlock: 0}, function (error, result) {
+	pear_contract.staked({
+		fromBlock: 0,
+		toBlock: 'latest'
+		}, function (error, result) {
         if (!error) {
 			console.log(result)
 		}else {
