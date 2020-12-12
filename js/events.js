@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
 	})
 	.on('error', console.error);
 	*/
-	pear_contract.getPastEvents('allEvents', {
+	pear_contract.contract.getPastEvents('allEvents', {
 		fromBlock: 0,
 		toBlock: 'latest'
 	});
