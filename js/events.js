@@ -11,6 +11,18 @@ window.addEventListener('load', () => {
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
 
+	pear_contract.events.staked({
+		filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
+		fromBlock: 0
+	}, function(error, event){ console.log(event); })
+	.on('data', function(event){
+		console.log(event); // same results as the optional callback above
+	})
+	.on('changed', function(event){
+		// remove event from local database
+	})
+	.on('error', console.error);
+	
 	pear_contract.staked({fromBlock: 0}, function (error, result) {
         if (!error) {
 			console.log(result)
