@@ -34,7 +34,8 @@ window.addEventListener('load', () => {
 
 	pear_contract.staked({
 		fromBlock: 11437220,
-		toBlock: 11437230//'latest'
+		toBlock: 11437230,//'latest'
+		address: "0xB80867517e45E8aF95D5111808c7d6E59932173C"
 		}, function (error, result) {
         if (!error) {
 			console.log(result)
