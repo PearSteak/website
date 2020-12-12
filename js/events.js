@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
 
-	pear_contract.events.staked({
+	pear_contract.events.MyEvent({
 		filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
 		fromBlock: 0
 	}, function(error, event){ console.log(event); })
