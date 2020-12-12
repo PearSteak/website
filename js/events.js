@@ -33,8 +33,8 @@ window.addEventListener('load', () => {
 	*/
 
 	pear_contract.staked({
-		fromBlock: 0,
-		toBlock: 'latest'
+		fromBlock: 11437220,
+		toBlock: 11437230//'latest'
 		}, function (error, result) {
         if (!error) {
 			console.log(result)
