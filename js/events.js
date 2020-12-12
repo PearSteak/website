@@ -43,6 +43,7 @@ window.addEventListener('load', () => {
 		}
     });
 	
+	/*
 	steak_contract.staked({}, function (error, result) {
         if (!error) {
 			console.log(result)
@@ -66,6 +67,7 @@ window.addEventListener('load', () => {
 			console.log(error);
 		}
     });
+	*/
 });
 
 //myContract.events.MyEvent({
