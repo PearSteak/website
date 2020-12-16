@@ -251,6 +251,44 @@ function updatePearLPApprovalBalance() {
 	});
 };
 
+function PearApprove() {
+	if ($(".pearLP-amount-approve").val() == "") {
+		$(".pearLP-amount-approve").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".pearLP-amount-approve").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".pearLP-amount-approve").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var approve_amount = $(".pearLP-amount-approve").val();
+	if (approve_amount.lastIndexOf(".") != -1) {
+		var dotPos = approve_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (approve_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			approve_amount = approve_amount.concat("0");
+		}
+		approve_amount = approve_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (approve_amount.length < 18) {
+			approve_amount = approve_amount.concat("000000000000000000");
+		}
+	}
+	
+	pear_uniswap_contract.approve(pearLP_contract_address, approve_amount, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+			$(".pearLP-amount-approve").val("");
+		} else {
+			console.log(error);
+		}
+	});
+};
+
 function updatePearLPBalance() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
