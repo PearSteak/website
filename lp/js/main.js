@@ -190,7 +190,7 @@ function updatePearLPBalance() {
 			
 	pear_uniswap_contract.balanceOf(account, function(error, info) {
 		if (!error) {
-			$(".pearLP-amount").attr("placeholder", (info/1000000000000000000).toFixed(5));
+			$(".pearLP-amount-approve").attr("placeholder", (info/1000000000000000000).toFixed(5));
 		} else {
 			console.log(error);
 		}
@@ -220,7 +220,7 @@ function updateSteakLPBalance() {
 			
 	steak_uniswap_contract.balanceOf(account, function(error, info) {
 		if (!error) {
-			$(".steakLP-amount").attr("placeholder", (info/1000000000000000000).toFixed(5));
+			$(".steakLP-amount-approve").attr("placeholder", (info/1000000000000000000).toFixed(5));
 		} else {
 			console.log(error);
 		}
