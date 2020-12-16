@@ -1,5 +1,5 @@
-pear_contract_address = "0xb36EF0e8f0B8F2C760aF404A8B768021EC6E3Cef";
-pear_abi = [
+pearLP_contract_address = "0xb36EF0e8f0B8F2C760aF404A8B768021EC6E3Cef";
+pearLP_abi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",

@@ -1,5 +1,5 @@
-steak_contract_address = "0x9931D8cF8D3d0f022dE4B8B5cf92c8a91Eba6b43";
-steak_abi = [
+steakLP_contract_address = "0x9931D8cF8D3d0f022dE4B8B5cf92c8a91Eba6b43";
+steakLP_abi = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
