@@ -247,7 +247,7 @@ function updatePearStakeList() {
 
 function unstakePear(_stake) {
 	pear_contract.unstake(_stake, function(error, hash) {
-		if (error)
+		if (error) {
 			console.log(error);
 		}
 	});
@@ -442,7 +442,7 @@ function updateSteakStakeList() {
 
 function unstakeSteak(_stake) {
 	steak_contract.unstake(_stake, function(error, hash) {
-		if (error)
+		if (error) {
 			console.log(error);
 		}
 	});
