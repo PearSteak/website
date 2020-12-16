@@ -323,6 +323,84 @@ function updatePearLPBalance() {
 	});
 };
 
+function PearLPStake() {
+	if ($(".pearLP-amount").val() == "") {
+		$(".pearLP-amount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".pearLP-amount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".pearLP-amount").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var stake_option = $(".pearLP-dropdown").val();
+	var stake_amount = $(".pearLP-amount").val();
+	if (stake_amount.lastIndexOf(".") != -1) {
+		var dotPos = stake_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			stake_amount = stake_amount.concat("0");
+		}
+		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (stake_amount.length < 18) {
+			stake_amount = stake_amount.concat("000000000000000000");
+		}
+	}
+	
+	pearLP_contract.stake(stake_amount, stake_option, function(error, hash) {
+		if (!error) {
+			$(".pearLP-amount").val("");
+			$(".pearLP-dropdown").html("Option <span class=\"caret\"></span>");
+			$(".pearLP-dropdown").val();
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updatePearLPStakeList() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pearLP_contract.getStakes.call(function(error, info) {
+		if (!error) {
+			$("#pearLP_stake_table").empty();
+			$.each(info, function( index, value ) {
+				var amount = (value[0]/1000000000000000000).toFixed(2);
+				var unlocks = secondsToHms(value[1]);
+				var earned = (value[2]/1000000000000000000).toFixed(2);
+				
+				$("#pearLP_stake_table").append("<tr>" + 
+													"<td>" + amount + "</td>" + 
+													"<td>" + unlocks + "</td>" + 
+													"<td>" + earned + "</td>" + 
+													"<td><button type=\"button\" onclick=\"unstakePearLP(" + index + ");\" class=\"btn btn-success btn-sm unstake-button pearLP_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+												"</tr>");
+				if (unlocks == "") {
+					$(".pearLP_unstake_" + index).prop('disabled', false);
+				}
+			});
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function unstakePearLP(_stake) {
+	pearLP_contract.unstake(_stake, function(error, hash) {
+		if (error) {
+			console.log(error);
+		}
+	});
+}
+
 
 // STEAK
 
