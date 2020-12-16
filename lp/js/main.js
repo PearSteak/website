@@ -439,7 +439,7 @@ function updatePearLPStakeList() {
 };
 
 function unstakePearLP(_stake) {
-	pearLP_contract.unstake(_stake, function(error, hash) {
+	pearLP_contract.unStake(_stake, function(error, hash) {
 		if (error) {
 			console.log(error);
 		}
@@ -641,6 +641,83 @@ function updateSteakLPBalance() {
 	});
 };
 
+function SteakLPStake() {
+	if ($(".steakLP-amount").val() == "") {
+		$(".steakLP-amount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".steakLP-amount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".steakLP-amount").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var stake_option = $(".steakLP-dropdown").val();
+	var stake_amount = $(".steakLP-amount").val();
+	if (stake_amount.lastIndexOf(".") != -1) {
+		var dotPos = stake_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			stake_amount = stake_amount.concat("0");
+		}
+		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (stake_amount.length < 18) {
+			stake_amount = stake_amount.concat("000000000000000000");
+		}
+	}
+	
+	steakLP_contract.stake(stake_amount, stake_option, function(error, hash) {
+		if (!error) {
+			$(".steakLP-amount").val("");
+			$(".steakLP-dropdown").html("Option <span class=\"caret\"></span>");
+			$(".steakLP-dropdown").val();
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updateSteakLPStakeList() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	steakLP_contract.getStakes.call(function(error, info) {
+		if (!error) {
+			$("#steakLP_stake_table").empty();
+			$.each(info, function( index, value ) {
+				var amount = (value[0]/1000000000000000000).toFixed(2);
+				var unlocks = secondsToHms(value[1]);
+				var earned = (value[2]/1000000000000000000).toFixed(2);
+				
+				$("#steakLP_stake_table").append("<tr>" + 
+													"<td>" + amount + "</td>" + 
+													"<td>" + unlocks + "</td>" + 
+													"<td>" + earned + "</td>" + 
+													"<td><button type=\"button\" onclick=\"unstakeSteakLP(" + index + ");\" class=\"btn btn-success btn-sm unstake-button steakLP_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+												"</tr>");
+				if (unlocks == "") {
+					$(".steakLP_unstake_" + index).prop('disabled', false);
+				}
+			});
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function unstakeSteakLP(_stake) {
+	steakLP_contract.unStake(_stake, function(error, hash) {
+		if (error) {
+			console.log(error);
+		}
+	});
+}
 
 // INFO MODAL
 
