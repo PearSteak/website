@@ -1,5 +1,5 @@
-steak_contract_address = "0xA22E6E4C134c123f5E30dA1583861686d7Ada26C";
-steak_uniswap_contract_address = "0x66d285c8cb4392da65c9de850f4840191ef07d62";
+steak_contract_address = "0x99d6F24563429C267d619075c6a0098C1F485441";
+steak_uniswap_contract_address = "0x5b1b0a7cd94de8d364c9056dc1710f46cecd16b8";
 steak_abi = [
 	{
 		"inputs": [],

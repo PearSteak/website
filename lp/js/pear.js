@@ -1,5 +1,5 @@
-pear_contract_address = "0x52F9EeEdEa6e23171a5B894E3dDA9deA73f41515";
-pear_uniswap_contract_address = "0xa0a3ff4212402de63a20604f56e7ae33008a5153";
+pear_contract_address = "0x36365AE6794349480E20bADba53a0f96C5169C97";
+pear_uniswap_contract_address = "0x4bc83ce7afe445656d170aca5484242b38061d34";
 pear_abi = [
 	{
 		"inputs": [],
