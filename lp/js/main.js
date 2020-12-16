@@ -206,6 +206,23 @@ $(function(){
 		$(".pear-dropdown").val(3);
 	});
 	
+	$(".pearLP-flexible").click(function(){
+		$(".pearLP-dropdown").html("Flexible <span class=\"caret\"></span>");
+		$(".pearLP-dropdown").val(0);
+	});
+	$(".pearLP-7days").click(function(){
+		$(".pearLP-dropdown").html("7-days <span class=\"caret\"></span>");
+		$(".pearLP-dropdown").val(1);
+	});
+	$(".pearLP-30days").click(function(){
+		$(".pearLP-dropdown").html("30-days <span class=\"caret\"></span>");
+		$(".pearLP-dropdown").val(2);
+	});
+	$(".pearLP-365days").click(function(){
+		$(".pearLP-dropdown").html("365-days <span class=\"caret\"></span>");
+		$(".pearLP-dropdown").val(3);
+	});
+	
 	$(".steak-flexible").click(function(){
 		$(".steak-dropdown").html("Flexible <span class=\"caret\"></span>");
 		$(".steak-dropdown").val(0);
@@ -221,6 +238,23 @@ $(function(){
 	$(".steak-365days").click(function(){
 		$(".steak-dropdown").html("365-days <span class=\"caret\"></span>");
 		$(".steak-dropdown").val(3);
+	});
+	
+	$(".steakLP-flexible").click(function(){
+		$(".steakLP-dropdown").html("Flexible <span class=\"caret\"></span>");
+		$(".steakLP-dropdown").val(0);
+	});
+	$(".steakLP-7days").click(function(){
+		$(".steakLP-dropdown").html("7-days <span class=\"caret\"></span>");
+		$(".steakLP-dropdown").val(1);
+	});
+	$(".steakLP-30days").click(function(){
+		$(".steakLP-dropdown").html("30-days <span class=\"caret\"></span>");
+		$(".steakLP-dropdown").val(2);
+	});
+	$(".steakLP-365days").click(function(){
+		$(".steakLP-dropdown").html("365-days <span class=\"caret\"></span>");
+		$(".steakLP-dropdown").val(3);
 	});
 });
 
