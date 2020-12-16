@@ -40,6 +40,8 @@ window.addEventListener('load', () => {
 	
 	setInterval(updateSteakLPApprovalBalance, 10000);
 	updateSteakLPApprovalBalance();
+	setInterval(updateSteakLPBalance, 10000);
+	updateSteakLPBalance();
 	
 	setInterval(updateDeal, 1000);
 	updateDeal();
@@ -404,6 +406,21 @@ function updateSteakLPApprovalBalance() {
 	steak_uniswap_contract.balanceOf(account, function(error, info) {
 		if (!error) {
 			$(".steakLP-amount-approve").attr("placeholder", (info/1000000000000000000).toFixed(5));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updateSteakLPBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	steak_uniswap_contract.allowance(account, steakLP_contract_address, function(error, info) {
+		if (!error) {
+			$(".steakLP-amount").attr("placeholder", (info/1000000000000000000).toFixed(5));
 		} else {
 			console.log(error);
 		}
