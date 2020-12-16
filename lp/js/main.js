@@ -21,23 +21,23 @@ window.addEventListener('load', () => {
 	
 	setInterval(updatePearTotalSupply, 10000);
 	updatePearTotalSupply();
-	setInterval(updateSteakTotalSupply, 10000);
-	updateSteakTotalSupply();
-	
 	setInterval(updatePearBalance, 10000);
 	updatePearBalance();
-	setInterval(updateSteakBalance, 10000);
-	updateSteakBalance();
-	
-	setInterval(updatePearLPBalance, 10000);
-	updatePearLPBalance();
-	setInterval(updateSteakLPBalance, 10000);
-	updateSteakLPBalance();
-	
 	setInterval(updatePearStakeList, 10000);
 	updatePearStakeList();
+	
+	setInterval(updatePearLPApprovalBalance, 10000);
+	updatePearLPApprovalBalance();
+	
+	setInterval(updateSteakTotalSupply, 10000);
+	updateSteakTotalSupply();
+	setInterval(updateSteakBalance, 10000);
+	updateSteakBalance();
 	setInterval(updateSteakStakeList, 10000);
 	updateSteakStakeList();
+	
+	setInterval(updateSteakLPApprovalBalance, 10000);
+	updateSteakLPApprovalBalance();
 	
 	setInterval(updateDeal, 1000);
 	updateDeal();
@@ -101,6 +101,9 @@ if (window.ethereum !== undefined) {
 	window.ethereum.enable();
 };
 
+
+// PEAR
+
 function updatePearTotalSupply() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
@@ -129,6 +132,123 @@ function updatePearTotalSupply() {
 		}
 	});	
 };
+
+function updatePearBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_contract.getMyBalance.call(function(error, info) {
+		if (!error) {
+			$(".pear-amount").attr("placeholder", (info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function PearStake() {
+	if ($(".pear-amount").val() == "") {
+		$(".pear-amount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".pear-amount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".pear-amount").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var stake_option = $(".pear-dropdown").val();
+	var stake_amount = $(".pear-amount").val();
+	if (stake_amount.lastIndexOf(".") != -1) {
+		var dotPos = stake_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			stake_amount = stake_amount.concat("0");
+		}
+		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (stake_amount.length < 18) {
+			stake_amount = stake_amount.concat("000000000000000000");
+		}
+	}
+	
+	pear_contract.stake(stake_amount, stake_option, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+			$(".pear-amount").val("");
+			$(".pear-dropdown").html("Option <span class=\"caret\"></span>");
+			$(".pear-dropdown").val();
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updatePearStakeList() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_contract.getStakes.call(function(error, info) {
+		if (!error) {
+			$("#pear_stake_table").empty();
+			$.each(info, function( index, value ) {
+				var amount = (value[0]/1000000000000000000).toFixed(2);
+				var unlocks = secondsToHms(value[1]);
+				var earned = (value[2]/1000000000000000000).toFixed(2);
+				
+				$("#pear_stake_table").append("<tr>" + 
+													"<td>" + amount + "</td>" + 
+													"<td>" + unlocks + "</td>" + 
+													"<td>" + earned + "</td>" + 
+													"<td><button type=\"button\" onclick=\"unstakePear(" + index + ");\" class=\"btn btn-success btn-sm unstake-button pear_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+												"</tr>");
+				if (unlocks == "") {
+					$(".pear_unstake_" + index).prop('disabled', false);
+				}
+			});
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function unstakePear(_stake) {
+	pear_contract.unstake(_stake, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+		} else {
+			console.log(error);
+		}
+	});
+}
+
+
+// PEAR LP
+
+function updatePearLPApprovalBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_uniswap_contract.balanceOf(account, function(error, info) {
+		if (!error) {
+			$(".pearLP-amount-approve").attr("placeholder", (info/1000000000000000000).toFixed(5));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+
+// STEAK
 
 function updateSteakTotalSupply() {
 	var account =
@@ -159,44 +279,6 @@ function updateSteakTotalSupply() {
 	});		
 };
 
-function openInfoModal() {
-	$("#infoModal").show();
-}
-
-function closeInfoModal() {
-	$("#infoModal").hide();
-}
-
-function updatePearBalance() {
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-			
-	pear_contract.getMyBalance.call(function(error, info) {
-		if (!error) {
-			$(".pear-amount").attr("placeholder", (info/1000000000000000000).toFixed(2));
-		} else {
-			console.log(error);
-		}
-	});
-};
-
-function updatePearLPBalance() {
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-			
-	pear_uniswap_contract.balanceOf(account, function(error, info) {
-		if (!error) {
-			$(".pearLP-amount-approve").attr("placeholder", (info/1000000000000000000).toFixed(5));
-		} else {
-			console.log(error);
-		}
-	});
-};
-
 function updateSteakBalance() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
@@ -212,7 +294,91 @@ function updateSteakBalance() {
 	});
 };
 
-function updateSteakLPBalance() {
+function SteakStake() {
+	if ($(".steak-amount").val() == "") {
+		$(".steak-amount").css('box-shadow', '0px 0px 10px #00CC00');
+		$(".steak-amount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".steak-amount").css('box-shadow', '0px 0px 0px #00CC00');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var stake_option = $(".steak-dropdown").val();
+	var stake_amount = $(".steak-amount").val();
+	if (stake_amount.lastIndexOf(".") != -1) {
+		var dotPos = stake_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			stake_amount = stake_amount.concat("0");
+		}
+		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (stake_amount.length < 18) {
+			stake_amount = stake_amount.concat("000000000000000000");
+		}
+	}
+	
+	steak_contract.stake(stake_amount, stake_option, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+			$(".steak-amount").val("");
+			$(".steak-dropdown").html("Option <span class=\"caret\"></span>");
+			$(".steak-dropdown").val();
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updateSteakStakeList() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	steak_contract.getStakes.call(function(error, info) {
+		if (!error) {
+			$("#steak_stake_table").empty();
+			$.each(info, function( index, value ) {
+				var amount = (value[0]/1000000000000000000).toFixed(2);
+				var unlocks = secondsToHms(value[1]);
+				var earned = (value[2]/1000000000000000000).toFixed(2);
+				
+				$("#steak_stake_table").append("<tr>" + 
+													"<td>" + amount + "</td>" + 
+													"<td>" + unlocks + "</td>" + 
+													"<td>" + earned + "</td>" + 
+													"<td><button type=\"button\" onclick=\"unstakeSteak(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button steak_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+												"</tr>");
+				if (unlocks == "") {
+					$(".steak_unstake_" + index).prop('disabled', false);
+				}
+			});
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function unstakeSteak(_stake) {
+	steak_contract.unstake(_stake, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+		} else {
+			console.log(error);
+		}
+	});
+}
+
+
+// STEAK LP
+
+function updateSteakLPApprovalBalance() {
 	var account =
 		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
 			? web3.eth.accounts[0]
@@ -226,6 +392,69 @@ function updateSteakLPBalance() {
 		}
 	});
 };
+
+
+// INFO MODAL
+
+function openInfoModal() {
+	$("#infoModal").show();
+}
+
+function closeInfoModal() {
+	$("#infoModal").hide();
+}
+
+
+// DEAL
+
+function updateDeal() {
+	var now = new Date;
+	var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate() , 
+      now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
+	$("#deal").text(secondsToHms(1607720400 - Math.floor(utc_timestamp / 1000)));
+};
+
+function buy() {
+	if ($(".buyamount").val() == "") {
+		$(".buyamount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".buyamount").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".buyamount").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	var amount = $(".buyamount").val();
+	if (amount.lastIndexOf(".") != -1) {
+		var dotPos = amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			amount = amount.concat("0");
+		}
+		amount = amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (amount.length < 18) {
+			amount = amount.concat("000000000000000000");
+		}
+	}
+	
+	sales_contract.buyTokens.sendTransaction({
+		from: web3.eth.accounts[0],
+		value: amount
+	 },function(error , result){
+		 if(!error)
+			 console.log(result);
+		 else
+			 console.log(error.code)
+	});
+}
+
+
+// MISC
 
 $(function(){
 	$(".pear-flexible").click(function(){
@@ -296,214 +525,6 @@ $(function(){
 		$(".steakLP-dropdown").val(3);
 	});
 });
-
-function PearStake() {
-	if ($(".pear-amount").val() == "") {
-		$(".pear-amount").css('box-shadow', '0px 0px 10px #CC0000');
-		$(".pear-amount").attr("placeholder", "INPUT AMOUNT!");
-		return;
-	} else {
-		$(".pear-amount").css('box-shadow', '0px 0px 0px #CC0000');
-	}
-	
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-	
-	var stake_option = $(".pear-dropdown").val();
-	var stake_amount = $(".pear-amount").val();
-	if (stake_amount.lastIndexOf(".") != -1) {
-		var dotPos = stake_amount.lastIndexOf(".");
-		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
-		for (i = 0; i < amountOfZeroesNeeded; i++) {
-			stake_amount = stake_amount.concat("0");
-		}
-		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
-	} else {
-		if (stake_amount.length < 18) {
-			stake_amount = stake_amount.concat("000000000000000000");
-		}
-	}
-	
-	pear_contract.stake(stake_amount, stake_option, function(error, hash) {
-		if (!error) {
-			console.log(hash);
-			$(".pear-amount").val("");
-			$(".pear-dropdown").html("Option <span class=\"caret\"></span>");
-			$(".pear-dropdown").val();
-		} else {
-			console.log(error);
-		}
-	});
-};
-
-function SteakStake() {
-	if ($(".steak-amount").val() == "") {
-		$(".steak-amount").css('box-shadow', '0px 0px 10px #00CC00');
-		$(".steak-amount").attr("placeholder", "INPUT AMOUNT!");
-		return;
-	} else {
-		$(".steak-amount").css('box-shadow', '0px 0px 0px #00CC00');
-	}
-	
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-	
-	var stake_option = $(".steak-dropdown").val();
-	var stake_amount = $(".steak-amount").val();
-	if (stake_amount.lastIndexOf(".") != -1) {
-		var dotPos = stake_amount.lastIndexOf(".");
-		var amountOfZeroesNeeded = 18 - (stake_amount.length - (dotPos+1));
-		for (i = 0; i < amountOfZeroesNeeded; i++) {
-			stake_amount = stake_amount.concat("0");
-		}
-		stake_amount = stake_amount.replace(/[^-+\d]/g, "")
-	} else {
-		if (stake_amount.length < 18) {
-			stake_amount = stake_amount.concat("000000000000000000");
-		}
-	}
-	
-	steak_contract.stake(stake_amount, stake_option, function(error, hash) {
-		if (!error) {
-			console.log(hash);
-			$(".steak-amount").val("");
-			$(".steak-dropdown").html("Option <span class=\"caret\"></span>");
-			$(".steak-dropdown").val();
-		} else {
-			console.log(error);
-		}
-	});
-};
-
-function updatePearStakeList() {
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-			
-	pear_contract.getStakes.call(function(error, info) {
-		if (!error) {
-			$("#pear_stake_table").empty();
-			$.each(info, function( index, value ) {
-				var amount = (value[0]/1000000000000000000).toFixed(2);
-				var unlocks = secondsToHms(value[1]);
-				var earned = (value[2]/1000000000000000000).toFixed(2);
-				
-				$("#pear_stake_table").append("<tr>" + 
-													"<td>" + amount + "</td>" + 
-													"<td>" + unlocks + "</td>" + 
-													"<td>" + earned + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstakePear(" + index + ");\" class=\"btn btn-success btn-sm unstake-button pear_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
-												"</tr>");
-				if (unlocks == "") {
-					$(".pear_unstake_" + index).prop('disabled', false);
-				}
-			});
-		} else {
-			console.log(error);
-		}
-	});
-};
-
-function updateSteakStakeList() {
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-	
-	steak_contract.getStakes.call(function(error, info) {
-		if (!error) {
-			$("#steak_stake_table").empty();
-			$.each(info, function( index, value ) {
-				var amount = (value[0]/1000000000000000000).toFixed(2);
-				var unlocks = secondsToHms(value[1]);
-				var earned = (value[2]/1000000000000000000).toFixed(2);
-				
-				$("#steak_stake_table").append("<tr>" + 
-													"<td>" + amount + "</td>" + 
-													"<td>" + unlocks + "</td>" + 
-													"<td>" + earned + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstakeSteak(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button steak_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
-												"</tr>");
-				if (unlocks == "") {
-					$(".steak_unstake_" + index).prop('disabled', false);
-				}
-			});
-		} else {
-			console.log(error);
-		}
-	});
-};
-
-function unstakePear(_stake) {
-	pear_contract.unstake(_stake, function(error, hash) {
-		if (!error) {
-			console.log(hash);
-		} else {
-			console.log(error);
-		}
-	});
-}
-
-function unstakeSteak(_stake) {
-	steak_contract.unstake(_stake, function(error, hash) {
-		if (!error) {
-			console.log(hash);
-		} else {
-			console.log(error);
-		}
-	});
-}
-
-function updateDeal() {
-	var now = new Date;
-	var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate() , 
-      now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
-	$("#deal").text(secondsToHms(1607720400 - Math.floor(utc_timestamp / 1000)));
-};
-
-function buy() {
-	if ($(".buyamount").val() == "") {
-		$(".buyamount").css('box-shadow', '0px 0px 10px #CC0000');
-		$(".buyamount").attr("placeholder", "INPUT AMOUNT!");
-		return;
-	} else {
-		$(".buyamount").css('box-shadow', '0px 0px 0px #CC0000');
-	}
-	
-	var account =
-		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
-			? web3.eth.accounts[0]
-			: '0x0000000000000000000000000000000000000001';
-			
-	var amount = $(".buyamount").val();
-	if (amount.lastIndexOf(".") != -1) {
-		var dotPos = amount.lastIndexOf(".");
-		var amountOfZeroesNeeded = 18 - (amount.length - (dotPos+1));
-		for (i = 0; i < amountOfZeroesNeeded; i++) {
-			amount = amount.concat("0");
-		}
-		amount = amount.replace(/[^-+\d]/g, "")
-	} else {
-		if (amount.length < 18) {
-			amount = amount.concat("000000000000000000");
-		}
-	}
-	
-	sales_contract.buyTokens.sendTransaction({
-		from: web3.eth.accounts[0],
-		value: amount
-	 },function(error , result){
-		 if(!error)
-			 console.log(result);
-		 else
-			 console.log(error.code)
-	});
-}
 
 function secondsToHms(d) {
     d = Number(d);
