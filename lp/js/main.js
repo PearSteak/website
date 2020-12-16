@@ -186,7 +186,7 @@ function updatePearLPBalance() {
 	pear_uniswap_contract.balanceOf(account, function(error, info) {
 		if (!error) {
 			console.log(info);
-			$(".pearLP-amount").attr("placeholder", (info).toFixed(2));
+			$(".pearLP-amount").attr("placeholder", (info).toFixed(5));
 		} else {
 			console.log(error);
 		}
