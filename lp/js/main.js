@@ -106,6 +106,7 @@ window.addEventListener('load', () => {
 		}
     });
 	
+	
 	sales_contract.bought({}, function (error, result) {
         if (!error) {
 			updatePearTotalSupply();
@@ -466,6 +467,44 @@ function updateSteakLPApprovalBalance() {
 	steak_uniswap_contract.balanceOf(account, function(error, info) {
 		if (!error) {
 			$(".steakLP-amount-approve").attr("placeholder", (info/1000000000000000000).toFixed(5));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function SteakApprove() {
+	if ($(".steakLP-amount-approve").val() == "") {
+		$(".steakLP-amount-approve").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".steakLP-amount-approve").attr("placeholder", "INPUT AMOUNT!");
+		return;
+	} else {
+		$(".steakLP-amount-approve").css('box-shadow', '0px 0px 0px #CC0000');
+	}
+	
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+	
+	var approve_amount = $(".steakLP-amount-approve").val();
+	if (approve_amount.lastIndexOf(".") != -1) {
+		var dotPos = approve_amount.lastIndexOf(".");
+		var amountOfZeroesNeeded = 18 - (approve_amount.length - (dotPos+1));
+		for (i = 0; i < amountOfZeroesNeeded; i++) {
+			approve_amount = approve_amount.concat("0");
+		}
+		approve_amount = approve_amount.replace(/[^-+\d]/g, "")
+	} else {
+		if (approve_amount.length < 18) {
+			approve_amount = approve_amount.concat("000000000000000000");
+		}
+	}
+	
+	steak_uniswap_contract.approve(steakLP_contract_address, approve_amount, function(error, hash) {
+		if (!error) {
+			console.log(hash);
+			$(".steakLP-amount-approve").val("");
 		} else {
 			console.log(error);
 		}
