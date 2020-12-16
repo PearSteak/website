@@ -699,7 +699,7 @@ function updateSteakLPStakeList() {
 													"<td>" + amount + "</td>" + 
 													"<td>" + unlocks + "</td>" + 
 													"<td>" + earned + "</td>" + 
-													"<td><button type=\"button\" onclick=\"unstakeSteakLP(" + index + ");\" class=\"btn btn-success btn-sm unstake-button steakLP_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
+													"<td><button type=\"button\" onclick=\"unstakeSteakLP(" + index + ");\" class=\"btn btn-danger btn-sm unstake-button steakLP_unstake_" + index + "\" disabled>Unstake!</button></td>" + 
 												"</tr>");
 				if (unlocks == "") {
 					$(".steakLP_unstake_" + index).prop('disabled', false);
