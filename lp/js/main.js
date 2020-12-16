@@ -247,6 +247,21 @@ function updatePearLPApprovalBalance() {
 	});
 };
 
+function updatePearLPBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	pear_uniswap_contract.allowance(account, pearLP_contract_address, function(error, info) {
+		if (!error) {
+			$(".pearLP-amount").attr("placeholder", (info/1000000000000000000).toFixed(5));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
 
 // STEAK
 
