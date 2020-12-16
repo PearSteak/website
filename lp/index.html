@@ -1,0 +1,295 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>PearSteak</title>
+	<meta name="description" content="Pear Steak">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="img/fav.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="infodiv">
+		<div class="infobar">
+			<a href="https://t.me/PearSteak" target="_blank"><i class="fab fa-telegram-plane"></i></a> <a href="mailto:PearSteak@protonmail.com"><i class="fas fa-envelope"></i></a> <a href="https://github.com/pearsteak" target="_blank"><i class="fab fa-github-alt"></i></a> <a href="https://twitter.com/PearSteak" target="_blank"><i class="fab fa-twitter"></i></a>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="column pear">
+			<div class="pearTotalSupply">
+				Total supply: <span class="pearTotalSupply_num">0.00</span><br/>
+				Total balance: <span class="pearTotalBalance_num">0.00</span><br/>
+				Available balance: <span class="pearAvailableBalance_num">0.00</span>
+			</div>
+			<h1>PEAR</h1>
+			<p>Contract: <span class="pear_contract"></span></p>
+			<table class="stakeTable stakesubmit">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control pear-amount" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-success dropdown-toggle pear-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="pear-flexible">Flexible, 1000% APY</a></li>
+									<li><a href="#" class="pear-7days">7-days, 2000% APY</a></li>
+									<li><a href="#" class="pear-30days">30-days, 3500% APY</a></li>
+									<li><a href="#" class="pear-365days">365-days, 5000% APY</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button style="width: 100%" class="btn btn-success" type="button" onclick="PearStake();">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="PearStakeTableDiv">
+				<table class="table-hover stakelist">
+					<thead>
+						<tr>
+							<th scope="col" style="width: 15%; text-align: center;">Amount</th>
+							<th scope="col" style="width: 60%; text-align: center;">Unlocks</th>
+							<th scope="col" style="width: 15%; text-align: center;">Earned</th>
+							<th scope="col" style="width: 10%; text-align: center;"></th>
+						</tr>
+					</thead>
+					<tbody id="pear_stake_table">
+					
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<h1>PEAR-ETH LP</h1>
+			<p>Contract: <span class="pear_contract"></span></p>
+			<table class="stakeTable stakesubmit">
+				<tbody>
+				</tbody>
+			</table>
+			<table class="stakeTable stakesubmit">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td ><input type="text" class="form-control pearLP-amount" placeholder="Amount"></td>
+						<td colspan="2"><button style="width: 100%" class="btn btn-success" type="button" onclick="PearLPStake();">Approve!</button></td>
+					</tr>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control pearLP-amount" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-success dropdown-toggle pearLP-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="pearLP-flexible">Flexible, 2000% APY</a></li>
+									<li><a href="#" class="pearLP-7days">7-days, 4000% APY</a></li>
+									<li><a href="#" class="pearLP-30days">30-days, 7000% APY</a></li>
+									<li><a href="#" class="pearLP-365days">365-days, 10000% APY</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button style="width: 100%" class="btn btn-success" type="button" onclick="PearLPStake();">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="PearLPStakeTableDiv">
+				<table class="table-hover stakelist">
+					<thead>
+						<tr>
+							<th scope="col" style="width: 15%; text-align: center;">Amount</th>
+							<th scope="col" style="width: 60%; text-align: center;">Unlocks</th>
+							<th scope="col" style="width: 15%; text-align: center;">Earned</th>
+							<th scope="col" style="width: 10%; text-align: center;"></th>
+						</tr>
+					</thead>
+					<tbody id="pearLP_stake_table">
+					
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						
+					</tbody>
+				</table>
+			</div>
+			<div id="pearImg"></div>
+		</div>
+		
+		<div class="column steak">
+			<div class="steakTotalSupply">
+				<span class="steakTotalSupply_num">0.00</span> :Total supply<br/>
+				<span class="steakTotalBalance_num">0.00</span> :Total balance<br/>
+				<span class="steakAvailableBalance_num">0.00</span> :Available balance
+			</div>
+			<h1>STEAK</h1>
+			<p>Contract: <span class="steak_contract"></span></p>
+			<table class="stakeTable stakesubmit">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control steak-amount" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-danger dropdown-toggle steak-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="steak-flexible">Flexible, 1000% APY</a></li>
+									<li><a href="#" class="steak-7days">7-days, 2000% APY</a></li>
+									<li><a href="#" class="steak-30days">30-days, 3500% APY</a></li>
+									<li><a href="#" class="steak-365days">365-days, 5000% APY</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button style="width: 100%" class="btn btn-danger" type="button" onclick="SteakStake();">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="SteakLPStakeTableDiv">
+				<table class="table-hover stakelist">
+					<thead>
+						<tr>
+							<th scope="col" style="width: 15%; text-align: center;">Amount</th>
+							<th scope="col" style="width: 60%; text-align: center;">Unlocks</th>
+							<th scope="col" style="width: 15%; text-align: center;">Earned</th>
+							<th scope="col" style="width: 10%; text-align: center;"></th>
+						</tr>
+					</thead>
+					<tbody id="steak_stake_table">
+						
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<h1>STEAK-ETH LP</h1>
+			<p>Contract: <span class="steak_contract"></span></p>
+			<table class="stakeTable stakesubmit">
+				<thead>
+					<tr>
+						<th scope="col" colspan="3" style="text-align: center;">Stake</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td ><input type="text" class="form-control steakLP-amount" placeholder="Amount"></td>
+						<td colspan="2"><button style="width: 100%" class="btn btn-danger" type="button" onclick="SteakLPStake();">Approve!</button></td>
+					</tr>
+					<tr>
+						<td style="width: 80%"><input type="text" class="form-control steak-amount" placeholder="Amount"></td>
+						<td style="width: 10%">
+							<div class="dropdown">
+								<button class="btn btn-danger dropdown-toggle steakLP-dropdown" type="button" data-toggle="dropdown" style="width: 100px">Option <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="steak-flexible">Flexible, 1000% APY</a></li>
+									<li><a href="#" class="steak-7days">7-days, 2000% APY</a></li>
+									<li><a href="#" class="steak-30days">30-days, 3500% APY</a></li>
+									<li><a href="#" class="steak-365days">365-days, 5000% APY</a></li>
+								</ul>
+							</div>
+						</td>
+						<td style="width: 10%"><button style="width: 100%" class="btn btn-danger" type="button" onclick="SteakStake();">Stake!</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="SteakLPStakeTableDiv">
+				<table class="table-hover stakelist">
+					<thead>
+						<tr>
+							<th scope="col" style="width: 15%; text-align: center;">Amount</th>
+							<th scope="col" style="width: 60%; text-align: center;">Unlocks</th>
+							<th scope="col" style="width: 15%; text-align: center;">Earned</th>
+							<th scope="col" style="width: 10%; text-align: center;"></th>
+						</tr>
+					</thead>
+					<tbody id="steak_stake_table">
+						
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+						<tr><td>450.00</td><td></td><td>86.70</td><td><button type="button" onclick="unstakePear(0);" class="btn btn-success btn-sm unstake-button pear_unstake_0">Unstake!</button></td></tr><tr><td>10.00</td><td>3 days 23 hours 10 minutes 32 seconds</td><td>1.66</td><td><button type="button" onclick="unstakePear(1);" class="btn btn-success btn-sm unstake-button pear_unstake_1" disabled="">Unstake!</button></td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="steakImg"></div>
+		</div>
+	</div>
+	
+	<div class="infobutton">
+		<button type="button" class="btn btn-primary btn-lg" onclick="openInfoModal()"><i class="fas fa-info"></i></button>
+	</div>
+	<div id="infoModal" class="modal" onclick="closeInfoModal()">
+		<div class="infotext">
+			<center><h1>PearSteak</h1></center>
+			<center><h4>Twin contracts with high yields but strong holding incentives!</h4></center><br/>
+			<p>
+				<b>Tokenomics:</b><br/>
+				Simple idea with powerfull execution, stake PEAR and earn STEAK, stake STEAK and earn PEAR. Dont dump your reward all at once or someones gonna pick it up, stake it and dump right back on you. The sibling contracts work in symbios.<br/><br/>
+				<b><i>There is no dev fund, the total supply will be decided by the amount bought. All tokens will be owned by the holders, there will be no dev fund dumps, no rug pulling and no shenanigans for a quick buck on your behalf!</i></b>
+			</p>
+			<p>
+				<b>Stake reward:</b><br/>
+				The reward depends on how long you are willing to lock up your tokens:<br/>
+				&nbsp;&nbsp;&nbsp;Flexible, no lock time: 1000% APY*<br/>
+				&nbsp;&nbsp;&nbsp;7-days: 2000% APY*<br/>
+				&nbsp;&nbsp;&nbsp;30-days: 3500% APY*<br/>
+				&nbsp;&nbsp;&nbsp;365-days: 5000% APY*<br/>
+				&nbsp;&nbsp;&nbsp;* Annual Percentage Yield
+			</p>
+			<p>
+				<b>Sales:</b><br/>
+				There is a one week sales period where you can buy both tokens for the price of one, 100 PEAR and 100 STEAK for 0.1 eth. The amount of sold tokens will decide the amount or tokens airdropped, once the airdrop has begone the sale will stop and the total supply will be set. Since the sales contract mints two different tokens directly in your wallet its unfortunately not possible to buy the tokens on uniswap.<br/><br/>
+				All buyers who bought more than 100 tokens will be automatically included in the airdrop but they are still able to take part in the form for a double airdrop.
+			</p>
+			<p>
+				<b>Airdrop:</b><br/>
+				To register for the airdrop you will have to fill in a form, the form will be dropped in the telegram group on friday the 11th of December at 21:00 UTC. The form will be open for 5 minutes giving everyone enough time to fill it out once. You will not be allowed to make multiple entries and any attempt will disqualify you from the airdrop. There is no guarantee you will make the drop simply for entering the form, you need to enter it correct as well.<br/><br/>
+				<b><i>Buyers who bought more than 100 tokens does not need to fill out the form to get the airdrop but if they want double drops they can fill out the form as well.</i></b><br/><br/>
+				The airdrop will be sized depending on sold tokens the previous week. 50% of all sold tokens will be split amongst the airdrop participants. It will be dropped in 4 stages, each with 7 days appart:<br/>
+				&nbsp;&nbsp;&nbsp;<b>The first drop</b> on the 11th consist of 10% of the airdrop pool split between all participants.<br/>
+				&nbsp;&nbsp;&nbsp;<b>The second drop</b> on the 18th consist of 20% of the original pool, it will be split between all the holders who have staked an amount of tokens corresponding to the first drop and locked them for 7 days or more, if you hold or staked less you will be excluded from this and future drops.<br/>
+				&nbsp;&nbsp;&nbsp;<b>The third drop</b> on the 25th consist of 20% of the original pool, it will be split between all the holders who have staked a total amount of the two previous airdrops and locked them for 30 days or more, if you have staked less you will be excluded from this and the final drop.<br/>
+				&nbsp;&nbsp;&nbsp;<b>The forth and final drop</b> on the 1th will consist of the remaining 50% of the pool, it will be split between all the remaining participants who have staked a total amount of the three previous aidrops and locked them for 365 days, if you have staked less you will be excluded from this drop.
+			</p>
+		</div>
+	</div>
+	<script src="js/pear.js"></script>
+	<script src="js/steak.js"></script>
+	<script src="js/sales.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
