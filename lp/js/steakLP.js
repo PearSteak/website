@@ -1,4 +1,4 @@
-steakLP_contract_address = "0x706C005da0243EF8436A7d2334cB4213E91F81eF";
+steakLP_contract_address = "0x10B8103561f2E6C385639aF1a6234585E3e357Bf";
 steakLP_abi = [
 	{
 		"inputs": [],
