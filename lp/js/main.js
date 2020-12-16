@@ -12,7 +12,9 @@ window.addEventListener('load', () => {
 		: '0x0000000000000000000000000000000000000001';
 		
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
+	pearLP_contract = web3.eth.contract(pearLP_abi).at(pearLP_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
+	steakLP_contract = web3.eth.contract(steakLP_abi).at(steakLP_contract_address);
 	sales_contract = web3.eth.contract(sales_abi).at(sales_contract_address);
 	
 	setInterval(updatePearTotalSupply, 10000);

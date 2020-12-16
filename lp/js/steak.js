@@ -1,4 +1,5 @@
 steak_contract_address = "0xA22E6E4C134c123f5E30dA1583861686d7Ada26C";
+Steak_uniswap_contract_address = "";
 steak_abi = [
 	{
 		"inputs": [],
