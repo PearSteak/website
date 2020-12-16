@@ -206,7 +206,6 @@ function PearStake() {
 	
 	pear_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
-			console.log(hash);
 			$(".pear-amount").val("");
 			$(".pear-dropdown").html("Option <span class=\"caret\"></span>");
 			$(".pear-dropdown").val();
@@ -248,9 +247,7 @@ function updatePearStakeList() {
 
 function unstakePear(_stake) {
 	pear_contract.unstake(_stake, function(error, hash) {
-		if (!error) {
-			console.log(hash);
-		} else {
+		if (error)
 			console.log(error);
 		}
 	});
@@ -304,7 +301,6 @@ function PearApprove() {
 	
 	pear_uniswap_contract.approve(pearLP_contract_address, approve_amount, function(error, hash) {
 		if (!error) {
-			console.log(hash);
 			$(".pearLP-amount-approve").val("");
 		} else {
 			console.log(error);
@@ -405,7 +401,6 @@ function SteakStake() {
 	
 	steak_contract.stake(stake_amount, stake_option, function(error, hash) {
 		if (!error) {
-			console.log(hash);
 			$(".steak-amount").val("");
 			$(".steak-dropdown").html("Option <span class=\"caret\"></span>");
 			$(".steak-dropdown").val();
@@ -447,9 +442,7 @@ function updateSteakStakeList() {
 
 function unstakeSteak(_stake) {
 	steak_contract.unstake(_stake, function(error, hash) {
-		if (!error) {
-			console.log(hash);
-		} else {
+		if (error)
 			console.log(error);
 		}
 	});
@@ -503,7 +496,6 @@ function SteakApprove() {
 	
 	steak_uniswap_contract.approve(steakLP_contract_address, approve_amount, function(error, hash) {
 		if (!error) {
-			console.log(hash);
 			$(".steakLP-amount-approve").val("");
 		} else {
 			console.log(error);
