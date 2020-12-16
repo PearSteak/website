@@ -591,11 +591,11 @@ function updateSteakLPApprovalBalance() {
 
 function SteakApprove() {
 	if ($(".steakLP-amount-approve").val() == "") {
-		$(".steakLP-amount-approve").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".steakLP-amount-approve").css('box-shadow', '0px 0px 10px #00CC00');
 		$(".steakLP-amount-approve").attr("placeholder", "INPUT AMOUNT!");
 		return;
 	} else {
-		$(".steakLP-amount-approve").css('box-shadow', '0px 0px 0px #CC0000');
+		$(".steakLP-amount-approve").css('box-shadow', '0px 0px 0px #00CC00');
 	}
 	
 	var account =
