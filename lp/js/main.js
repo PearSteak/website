@@ -29,6 +29,11 @@ window.addEventListener('load', () => {
 	setInterval(updateSteakBalance, 10000);
 	updateSteakBalance();
 	
+	setInterval(updatePearLPBalance, 10000);
+	updatePearLPBalance();
+	setInterval(updateSteakLPBalance, 10000);
+	updateSteakLPBalance();
+	
 	setInterval(updatePearStakeList, 10000);
 	updatePearStakeList();
 	setInterval(updateSteakStakeList, 10000);
@@ -185,8 +190,7 @@ function updatePearLPBalance() {
 			
 	pear_uniswap_contract.balanceOf(account, function(error, info) {
 		if (!error) {
-			console.log(info);
-			$(".pearLP-amount").attr("placeholder", (info).toFixed(5));
+			$(".pearLP-amount").attr("placeholder", (info/1000000000000000000).toFixed(5));
 		} else {
 			console.log(error);
 		}
@@ -202,6 +206,21 @@ function updateSteakBalance() {
 	steak_contract.getMyBalance.call(function(error, info) {
 		if (!error) {
 			$(".steak-amount").attr("placeholder", (info/1000000000000000000).toFixed(2));
+		} else {
+			console.log(error);
+		}
+	});
+};
+
+function updateSteakLPBalance() {
+	var account =
+		web3.eth.accounts !== undefined && web3.eth.accounts[0] !== undefined
+			? web3.eth.accounts[0]
+			: '0x0000000000000000000000000000000000000001';
+			
+	steak_uniswap_contract.balanceOf(account, function(error, info) {
+		if (!error) {
+			$(".steakLP-amount").attr("placeholder", (info/1000000000000000000).toFixed(5));
 		} else {
 			console.log(error);
 		}
