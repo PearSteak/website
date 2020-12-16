@@ -28,6 +28,8 @@ window.addEventListener('load', () => {
 	
 	setInterval(updatePearLPApprovalBalance, 10000);
 	updatePearLPApprovalBalance();
+	setInterval(updatePearLPBalance, 10000);
+	updatePearLPBalance();
 	
 	setInterval(updateSteakTotalSupply, 10000);
 	updateSteakTotalSupply();
