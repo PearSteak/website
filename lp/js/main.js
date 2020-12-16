@@ -46,19 +46,13 @@ window.addEventListener('load', () => {
 	setInterval(updateDeal, 1000);
 	updateDeal();
 	
+	//emit Approval(owner, spender, amount);
+	
+	
 	pear_contract.staked({}, function (error, result) {
         if (!error) {
 			updatePearBalance();
 			updatePearStakeList();
-		}else {
-			console.log(error);
-		}
-    });
-	
-	steak_contract.staked({}, function (error, result) {
-        if (!error) {
-			updateSteakBalance();
-			updateSteakStakeList();
 		}else {
 			console.log(error);
 		}
@@ -73,12 +67,40 @@ window.addEventListener('load', () => {
 			console.log(error);
 		}
     });
+		
+		
+	pear_uniswap_contract.Approval({}, function (error, result) {
+        if (!error) {
+			updatePearLPBalance();
+		}else {
+			console.log(error);
+		}
+    });
+	
+	
+	steak_contract.staked({}, function (error, result) {
+        if (!error) {
+			updateSteakBalance();
+			updateSteakStakeList();
+		}else {
+			console.log(error);
+		}
+    });
 	
 	steak_contract.unstaked({}, function (error, result) {
         if (!error) {
 			updateSteakTotalSupply();
 			updatePearBalance();
 			updateSteakStakeList();
+		}else {
+			console.log(error);
+		}
+    });
+	
+		
+	steak_uniswap_contract.Approval({}, function (error, result) {
+        if (!error) {
+			updateSteakLPBalance();
 		}else {
 			console.log(error);
 		}
