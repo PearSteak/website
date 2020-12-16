@@ -84,6 +84,8 @@ window.addEventListener('load', () => {
 	
 	$(".pear_contract").text(pear_contract_address);
 	$(".steak_contract").text(steak_contract_address);
+	$(".pearLP_contract").text(pearLP_contract_address);
+	$(".steakLP_contract").text(steakLP_contract_address);
 });
 
 if (window.ethereum !== undefined) {
