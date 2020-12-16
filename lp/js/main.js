@@ -643,11 +643,11 @@ function updateSteakLPBalance() {
 
 function SteakLPStake() {
 	if ($(".steakLP-amount").val() == "") {
-		$(".steakLP-amount").css('box-shadow', '0px 0px 10px #CC0000');
+		$(".steakLP-amount").css('box-shadow', '0px 0px 10px #00CC00');
 		$(".steakLP-amount").attr("placeholder", "INPUT AMOUNT!");
 		return;
 	} else {
-		$(".steakLP-amount").css('box-shadow', '0px 0px 0px #CC0000');
+		$(".steakLP-amount").css('box-shadow', '0px 0px 0px #00CC00');
 	}
 	
 	var account =
