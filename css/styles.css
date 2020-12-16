@@ -15,7 +15,7 @@ body {
 .infodiv {
 	text-align: center;
 	position: fixed;
-	top: 10px;
+	top: 0px;
 	margin: auto;
 	width: 100%;
 	font-size: 50px;
