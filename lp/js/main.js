@@ -30,6 +30,8 @@ window.addEventListener('load', () => {
 	updatePearLPApprovalBalance();
 	setInterval(updatePearLPBalance, 10000);
 	updatePearLPBalance();
+	setInterval(updatePearLPStakeList, 10000);
+	updatePearLPStakeList();
 	
 	setInterval(updateSteakTotalSupply, 10000);
 	updateSteakTotalSupply();
@@ -42,6 +44,8 @@ window.addEventListener('load', () => {
 	updateSteakLPApprovalBalance();
 	setInterval(updateSteakLPBalance, 10000);
 	updateSteakLPBalance();
+	setInterval(updateSteakLPStakeList, 10000);
+	updateSteakLPStakeList();
 	
 	setInterval(updateDeal, 1000);
 	updateDeal();
