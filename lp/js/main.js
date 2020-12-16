@@ -84,6 +84,8 @@ window.addEventListener('load', () => {
 	
 	pearLP_contract.unstaked({}, function (error, result) {
         if (!error) {
+			updatePearLPApprovalBalance()
+			updatePearLPBalance();
 			updateSteakTotalSupply();
 			updateSteakBalance();
 			updatePearLPStakeList();
@@ -134,6 +136,8 @@ window.addEventListener('load', () => {
 	
 	steakLP_contract.unstaked({}, function (error, result) {
         if (!error) {
+			updateSteakLPApprovalBalance()
+			updateSteakLPBalance();
 			updatePearTotalSupply();
 			updatePearBalance();
 			updateSteakLPStakeList();
