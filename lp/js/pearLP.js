@@ -1,4 +1,4 @@
-pearLP_contract_address = "0x59e23d93b4E5824c0345654633145DBa42b7061f";
+pearLP_contract_address = "0xD7634366e50418aE20AA50fe2fa8cB858F355b34";
 pearLP_abi = [
 	{
 		"inputs": [],
