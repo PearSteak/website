@@ -13,7 +13,6 @@ window.addEventListener('load', () => {
 		
 	pear_contract = web3.eth.contract(pear_abi).at(pear_contract_address);
 	steak_contract = web3.eth.contract(steak_abi).at(steak_contract_address);
-	sales_contract = web3.eth.contract(sales_abi).at(sales_contract_address);
 	
 	setInterval(updatePearTotalSupply, 10000);
 	updatePearTotalSupply();
@@ -70,17 +69,7 @@ window.addEventListener('load', () => {
 			console.log(error);
 		}
     });
-	
-	sales_contract.bought({}, function (error, result) {
-        if (!error) {
-			updatePearTotalSupply();
-			updateSteakTotalSupply();
-			updatePearBalance();
-			updateSteakBalance();
-		}else {
-			console.log(error);
-		}
-    });
+
 	
 	$(".pear_contract").text(pear_contract_address);
 	$(".steak_contract").text(steak_contract_address);
@@ -419,15 +408,6 @@ function buy() {
 		}
 	}
 	
-	sales_contract.buyTokens.sendTransaction({
-		from: web3.eth.accounts[0],
-		value: amount
-	 },function(error , result){
-		 if(!error)
-			 console.log(result);
-		 else
-			 console.log(error.code)
-	});
 }
 
 function secondsToHms(d) {
